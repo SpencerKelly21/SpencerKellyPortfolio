@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Spencer D. Kelly - Portfolio</title>
+<title>Spencer D. Kelly - Mechanical Engineer</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -36,17 +36,18 @@
   h1,h2,h3{font-family:'Space Grotesk', system-ui, sans-serif; margin:0; letter-spacing:-0.01em;}
   .mono{font-family:'IBM Plex Mono', ui-monospace, monospace;}
   a{color:var(--blue);}
-  
+
   /* Layout Wrapper */
-  .wrap{max-width:900px; margin:0 auto; padding:0 24px;}
+  .wrap{max-width:1080px; margin:0 auto; padding:0 clamp(20px, 4vw, 48px);}
   .rule{border:none; border-top:1px solid var(--line); margin:0;}
 
   /* Header / title block */
   header{border-bottom:1px solid var(--line); padding:28px 0 20px;}
   .titleblock{display:flex; flex-wrap:wrap; gap:20px; justify-content:space-between; align-items:flex-end;}
   header h1{font-size:clamp(1.6rem, 4vw, 2.1rem);}
-  header .role{color:var(--graphite); font-size:1rem; margin-top:6px; line-height:1.35;}
-  
+  header .role{color:var(--graphite); font-size:1rem; margin-top:4px;}
+  header .role + .role{margin-top:1px;}
+
   /* Top Contact Links */
   .header-links{display:flex; gap:16px; margin-top:12px; font-size:0.88rem;}
   .header-links a{color:var(--blue); text-decoration:none; font-weight:500;}
@@ -59,34 +60,38 @@
 
   section{padding:52px 0;}
   .sheet-tag{font-family:'IBM Plex Mono', monospace; font-size:0.72rem; color:var(--graphite); margin-bottom:8px;}
-  section h2{font-size:1.6rem; margin-bottom:18px;}
+  section h2{font-size:1.5rem; margin-bottom:18px;}
 
-  /* About Section */
-  #about p{max-width:75ch; color:var(--ink); font-size:1.05rem; line-height:1.65;}
+  /* About */
+  #about p{max-width:70ch; color:var(--ink);}
+  #about p + p{margin-top:14px;}
 
-  /* Projects index (+20% Scaled) */
-  .proj-row{border:1px solid var(--line); border-top:none; padding:20px 22px; cursor:pointer; background:var(--card);}
+  /* Projects index */
+  .proj-row{border:1px solid var(--line); border-top:none; padding:19px 22px; cursor:pointer; background:var(--card);}
   .proj-row:first-of-type{border-top:1px solid var(--line);}
   .proj-row .row-head{display:flex; justify-content:space-between; gap:16px; align-items:baseline;}
   .proj-row h3{font-size:1.26rem;}
   .proj-row .sub{color:var(--graphite); font-size:1.1rem; margin-top:4px;}
-  .tags{margin-top:10px; display:flex; flex-wrap:wrap; gap:8px;}
+  .tags{margin-top:8px; display:flex; flex-wrap:wrap; gap:7px;}
   .tag{font-family:'IBM Plex Mono', monospace; font-size:0.84rem; color:var(--blue); border:1px solid var(--line); padding:3px 8px;}
   .expand-hint{font-family:'IBM Plex Mono', monospace; font-size:0.84rem; color:var(--graphite);}
+  .expand-hint .hint-collapse{display:none;}
+  .proj-row.open .expand-hint .hint-expand{display:none;}
+  .proj-row.open .expand-hint .hint-collapse{display:inline;}
   .detail{max-height:0; overflow:hidden; transition:max-height .35s ease;}
-  .proj-row.open .detail{max-height:800px; margin-top:16px;}
-  .detail-inner{border-top:1px dashed var(--line); padding-top:16px; display:grid; grid-template-columns:1fr 1.4fr; gap:24px;}
+  .proj-row.open .detail{max-height:900px; margin-top:14px;}
+  .detail-inner{border-top:1px dashed var(--line); padding-top:14px; display:grid; grid-template-columns:1fr 1.4fr; gap:24px;}
   @media (max-width:600px){.detail-inner{grid-template-columns:1fr;}}
   .spec-list div{display:flex; justify-content:space-between; padding:6px 0; border-bottom:1px solid var(--line); font-size:1.02rem;}
   .spec-list span:first-child{color:var(--graphite);}
   .spec-list span:last-child{font-family:'IBM Plex Mono', monospace;}
-  .media-slot{border:1px dashed var(--line); color:var(--graphite); font-size:0.95rem; padding:16px; text-align:center; margin-bottom:12px;}
+  .media-slot{border:1px dashed var(--line); color:var(--graphite); font-size:0.96rem; padding:17px; text-align:center; margin-bottom:10px;}
   .narrative{font-size:1.1rem; color:var(--ink);}
-  
+
   /* Code / Repo Button */
   .repo-link{
     display:inline-block;
-    margin-top:16px;
+    margin-top:14px;
     font-family:'IBM Plex Mono', monospace;
     font-size:0.94rem;
     color:var(--blue);
@@ -101,22 +106,20 @@
     color:var(--paper);
   }
 
-  /* Experience (+20% Scaled) */
-  .exp-row{display:grid; grid-template-columns:220px 1fr; gap:16px; padding:16px 0; border-top:1px solid var(--line); font-size:1.1rem;}
+  /* Experience */
+  .exp-row{display:grid; grid-template-columns:180px 1fr; gap:17px; padding:14px 0; border-top:1px solid var(--line);}
   .exp-row:first-child{border-top:none;}
   .exp-row .when{font-family:'IBM Plex Mono', monospace; font-size:0.94rem; color:var(--graphite);}
+  .exp-row .what{font-size:1.2rem;}
   .exp-row .what b{font-weight:600;}
   .exp-row .what .place{color:var(--graphite);}
-  @media (max-width:640px){.exp-row{grid-template-columns:1fr; gap:4px;}}
 
   /* Skills */
   .skill-cols{display:grid; grid-template-columns:repeat(3,1fr); gap:24px;}
   @media (max-width:640px){.skill-cols{grid-template-columns:1fr;}}
-  .skill-cols h4{font-size:0.85rem; color:var(--graphite); font-weight:500; margin-bottom:10px;}
-  .skill-cols ul{list-style:none; margin:0; padding:0; font-family:'IBM Plex Mono', monospace; font-size:0.9rem; display:flex; flex-wrap:wrap; gap:6px;}
+  .skill-cols h4{font-size:0.8rem; color:var(--graphite); font-weight:500; margin-bottom:10px;}
+  .skill-cols ul{list-style:none; margin:0; padding:0; font-family:'IBM Plex Mono', monospace; font-size:0.85rem; display:flex; flex-wrap:wrap; gap:6px;}
   .skill-cols li{border:1px solid var(--line); padding:3px 8px;}
-
-  footer{border-top:1px solid var(--line); padding:30px 0 50px; color:var(--graphite); font-size:0.9rem;}
 </style>
 </head>
 <body>
@@ -126,11 +129,9 @@
     <div class="titleblock">
       <div>
         <h1>Spencer D. Kelly</h1>
-        <div class="role">
-          <div>M.S. Mechanical Engineering</div>
-          <div>B.S. Bioengineering</div>
-        </div>
-        <div class="header-links">
+        <div class="role">M.S. Mechanical Engineering</div>
+        <div class="role">B.S. Bioengineering</div>
+        <div class="header-links" id="contact">
           <a href="https://www.linkedin.com/in/Mech1" target="_blank">LinkedIn</a>
           <a href="mailto:spencerkelly25@g.ucla.edu">Email</a>
           <a href="#">Download Résumé</a>
@@ -142,13 +143,17 @@
       <a href="#projects">Projects</a>
       <a href="#experience">Experience</a>
       <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
     </nav>
   </header>
+
+  <hr class="rule">
 
   <section id="about">
     <div class="sheet-tag">SHEET 01 — ABOUT</div>
     <h2>About</h2>
-    <p>Recent graduate student of the UCLA MAE department with an emphasis on robotics and mechatronic systems. I graduated with a B.S. in Bioengineering at UCLA with an interest in orthopedics, bionics, medical device design, and automation process development. I've done research in tissue engineering, microfabrication, and bioprinting, and helped in designing a small-scale bioreactor in collaboration with the UCLA Medical School. Outside of engineering, I'm passionate about environmental conservation, cooking, climbing, and learning different languages!</p>
+    <p>Recent graduate student of the UCLA MAE department with an emphasis on robotics and mechatronic systems. I graduated with a B.S. in Bioengineering at UCLA with an interest in orthopedics, bionics, medical device design, and automation process development. I've done research in tissue engineering, microfabrication, and bioprinting, and helped design a small-scale bioreactor in collaboration with the UCLA Medical School.</p>
+    <p>Outside of engineering, I'm passionate about environmental conservation, cooking, climbing, and learning new languages.</p>
   </section>
 
   <hr class="rule">
@@ -158,13 +163,13 @@
     <h2>Projects</h2>
 
     <!-- Project 1 -->
-    <div class="proj-row" onclick="this.classList.toggle('open')">
+    <div class="proj-row open" onclick="this.classList.toggle('open')">
       <div class="row-head">
         <div>
           <h3>Precision Motion System Validation</h3>
-          <div class="sub">Ultima Genomics — Systems Automation Engineering Intern, June 2026 – Present</div>
+          <div class="sub">Ultima Genomics — Systems Automation Engineering Intern, June 2026–Present</div>
         </div>
-        <div class="expand-hint">tap to expand</div>
+        <div class="expand-hint"><span class="hint-expand">tap to expand</span><span class="hint-collapse">tap to collapse</span></div>
       </div>
       <div class="tags">
         <span class="tag">ACSPL+</span><span class="tag">DVT</span><span class="tag">DFMEA</span><span class="tag">Python</span>
@@ -193,9 +198,9 @@
       <div class="row-head">
         <div>
           <h3>Autonomous Air Hockey Defender — "What The Puck"</h3>
-          <div class="sub">Team Lead — March 2026 – June 2026</div>
+          <div class="sub">Team Lead — Mar–Jun 2026</div>
         </div>
-        <div class="expand-hint">tap to expand</div>
+        <div class="expand-hint"><span class="hint-expand">tap to expand</span><span class="hint-collapse">tap to collapse</span></div>
       </div>
       <div class="tags"><span class="tag">OpenCV</span><span class="tag">Raspberry Pi</span><span class="tag">PID</span><span class="tag">Dynamixel</span></div>
       <div class="detail">
@@ -220,9 +225,9 @@
       <div class="row-head">
         <div>
           <h3>Signal Processed ECG/EMG Acquisition System</h3>
-          <div class="sub">Individual Project — February 2026 – March 2026</div>
+          <div class="sub">Individual Project — Feb–Mar 2026</div>
         </div>
-        <div class="expand-hint">tap to expand</div>
+        <div class="expand-hint"><span class="hint-expand">tap to expand</span><span class="hint-collapse">tap to collapse</span></div>
       </div>
       <div class="tags"><span class="tag">ESP32-S3</span><span class="tag">INA826</span><span class="tag">FFT</span><span class="tag">Processing (Java)</span></div>
       <div class="detail">
@@ -247,9 +252,9 @@
       <div class="row-head">
         <div>
           <h3>5-DoF Cake Icing Robot</h3>
-          <div class="sub">Electronics Lead — September 2025 – December 2025</div>
+          <div class="sub">Electronics Lead — Sept–Dec 2025</div>
         </div>
-        <div class="expand-hint">tap to expand</div>
+        <div class="expand-hint"><span class="hint-expand">tap to expand</span><span class="hint-collapse">tap to collapse</span></div>
       </div>
       <div class="tags"><span class="tag">ESP32</span><span class="tag">RS-485</span><span class="tag">DH Params</span><span class="tag">Dynamixel</span></div>
       <div class="detail">
@@ -268,9 +273,9 @@
       <div class="row-head">
         <div>
           <h3>Vision Sensing Hand Mimic</h3>
-          <div class="sub">Individual Project — January 2025 – May 2025</div>
+          <div class="sub">Individual Project — Jan–May 2025</div>
         </div>
-        <div class="expand-hint">tap to expand</div>
+        <div class="expand-hint"><span class="hint-expand">tap to expand</span><span class="hint-collapse">tap to collapse</span></div>
       </div>
       <div class="tags"><span class="tag">RP2040</span><span class="tag">OpenCV</span><span class="tag">Processing</span><span class="tag">Servos</span></div>
       <div class="detail">
@@ -295,9 +300,9 @@
       <div class="row-head">
         <div>
           <h3>Small-Scale Bioreactor</h3>
-          <div class="sub">Senior Capstone, Project Manager — September 2024 – March 2025</div>
+          <div class="sub">Senior Capstone, Project Manager — Sept 2024–Mar 2025</div>
         </div>
-        <div class="expand-hint">tap to expand</div>
+        <div class="expand-hint"><span class="hint-expand">tap to expand</span><span class="hint-collapse">tap to collapse</span></div>
       </div>
       <div class="tags"><span class="tag">COMSOL</span><span class="tag">SolidWorks</span><span class="tag">Tissue Engineering</span></div>
       <div class="detail">
@@ -318,7 +323,7 @@
   <section id="experience">
     <div class="sheet-tag">SHEET 03 — EXPERIENCE</div>
     <h2>Experience</h2>
-    <div class="exp-row"><div class="when">June 2026 – Present</div><div class="what"><b>Systems Automation Engineering Intern</b> <span class="place">— Ultima Genomics</span></div></div>
+    <div class="exp-row"><div class="when">June 2026 – present</div><div class="what"><b>Systems Automation Engineering Intern</b> <span class="place">— Ultima Genomics</span></div></div>
     <div class="exp-row"><div class="when">May 2025 – March 2026</div><div class="what"><b>Teaching Assistant / Student Liaison</b> <span class="place">— UCLA Bioengineering</span></div></div>
     <div class="exp-row"><div class="when">July 2025 – September 2025</div><div class="what"><b>CNC Machining Intern</b> <span class="place">— 3-Way Machining</span></div></div>
     <div class="exp-row"><div class="when">June 2024 – September 2024</div><div class="what"><b>Process Engineering Intern</b> <span class="place">— Applied Medical</span></div></div>
@@ -347,7 +352,6 @@
     </div>
   </section>
 
-  <footer></footer>
 </div>
 
 </body>
