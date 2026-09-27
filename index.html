@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Spencer D. Kelly </title>
+<title>Spencer D. Kelly</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -46,11 +46,10 @@
   .titleblock{display:flex; flex-wrap:wrap; gap:20px; justify-content:space-between; align-items:flex-end;}
   header h1{font-size:clamp(1.8rem, 4vw, 2.3rem);}
   
-  /* Increased size (+30%) & updated spacing */
   header .role{color:var(--graphite); font-size:1.3rem; margin-top:4px;}
   header .role + .role{margin-top:2px;}
 
-  /* Top Contact Links (+30% size, equal top & bottom spacing) */
+  /* Top Contact Links */
   .header-links{
     display:flex; 
     gap:20px; 
@@ -124,14 +123,14 @@
   }
 
   /* Experience */
-  .exp-row{display:grid; grid-template-columns:220px 1fr; gap:17px; padding:14px 0; border-top:1px solid var(--line);}
+  .exp-row{display:grid; grid-template-columns:max-content 1fr; gap:24px; padding:14px 0; border-top:1px solid var(--line);}
   .exp-row:first-child{border-top:none;}
-  .exp-row .when{font-family:'IBM Plex Mono', monospace; font-size:0.94rem; color:var(--graphite);}
+  .exp-row .when{font-family:'IBM Plex Mono', monospace; font-size:0.94rem; color:var(--graphite); white-space:nowrap;}
   .exp-row .what{font-size:1.2rem;}
   .exp-row .what b{font-weight:600;}
   .exp-row .what .place{color:var(--graphite);}
 
-  /* Skills (+30% enlarged) */
+  /* Skills */
   .skill-cols{display:grid; grid-template-columns:repeat(3,1fr); gap:28px;}
   @media (max-width:640px){.skill-cols{grid-template-columns:1fr;}}
   .skill-cols h4{font-size:1.05rem; color:var(--graphite); font-weight:600; margin-bottom:12px;}
@@ -151,7 +150,6 @@
         <div class="header-links">
           <a href="https://www.linkedin.com/in/Mech1" target="_blank">LinkedIn</a>
           <a href="mailto:spencerkelly25@g.ucla.edu">Email</a>
-          <!-- Update the href to point to your PDF file -->
           <a href="Spencer_Kelly_Resume.pdf" download="Spencer_Kelly_resume.pdf">Download Resume</a>
         </div>
       </div>
