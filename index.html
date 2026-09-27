@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Spencer D. Kelly — Mechanical Engineer</title>
+<title>Spencer D. Kelly - Portfolio</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -45,19 +45,12 @@
   header{border-bottom:1px solid var(--line); padding:28px 0 20px;}
   .titleblock{display:flex; flex-wrap:wrap; gap:20px; justify-content:space-between; align-items:flex-end;}
   header h1{font-size:clamp(1.6rem, 4vw, 2.1rem);}
-  header .role{color:var(--graphite); font-size:1rem; margin-top:4px;}
+  header .role{color:var(--graphite); font-size:1rem; margin-top:6px; line-height:1.35;}
   
   /* Top Contact Links */
   .header-links{display:flex; gap:16px; margin-top:12px; font-size:0.88rem;}
   .header-links a{color:var(--blue); text-decoration:none; font-weight:500;}
   .header-links a:hover{text-decoration:underline;}
-
-  .tb-table{font-family:'IBM Plex Mono', monospace; font-size:0.78rem; color:var(--graphite); border:1px solid var(--line); overflow:hidden;}
-  .tb-table div{display:flex; border-top:1px solid var(--line);}
-  .tb-table div:first-child{border-top:none;}
-  .tb-table span{padding:5px 10px;}
-  .tb-table span:first-child{color:var(--graphite); border-right:1px solid var(--line); min-width:90px;}
-  .tb-table span:last-child{color:var(--ink);}
 
   /* Nav */
   nav{display:flex; gap:22px; padding:14px 0; flex-wrap:wrap; font-size:0.92rem;}
@@ -66,51 +59,40 @@
 
   section{padding:52px 0;}
   .sheet-tag{font-family:'IBM Plex Mono', monospace; font-size:0.72rem; color:var(--graphite); margin-bottom:8px;}
-  section h2{font-size:1.5rem; margin-bottom:18px;}
+  section h2{font-size:1.6rem; margin-bottom:18px;}
 
-  /* Hero gauge */
-  .hero{display:grid; grid-template-columns:1.3fr 1fr; gap:40px; align-items:center; padding:44px 0 40px;}
-  @media (max-width:680px){.hero{grid-template-columns:1fr;}}
-  .hero p{color:var(--graphite); max-width:46ch; font-size:1.02rem;}
-  .gauge-wrap{display:flex; flex-direction:column; align-items:center; gap:6px;}
-  .gauge-label{font-family:'IBM Plex Mono', monospace; font-size:0.72rem; color:var(--graphite); text-align:center;}
-  #needle{transform-origin:100px 100px; transform:rotate(-54deg); transition:transform 2.2s cubic-bezier(.2,.9,.25,1) .3s;}
-  .gauge-wrap.settled #needle{transform:rotate(54deg);}
-  .readout{font-family:'IBM Plex Mono', monospace; font-size:0.85rem; margin-top:6px;}
-  .readout .orange{color:var(--orange);}
+  /* About Section */
+  #about p{max-width:75ch; color:var(--ink); font-size:1.05rem; line-height:1.65;}
 
-  /* About */
-  #about p{max-width:70ch; color:var(--ink);}
-
-  /* Projects index */
-  .proj-row{border:1px solid var(--line); border-top:none; padding:16px 18px; cursor:pointer; background:var(--card);}
+  /* Projects index (+20% Scaled) */
+  .proj-row{border:1px solid var(--line); border-top:none; padding:20px 22px; cursor:pointer; background:var(--card);}
   .proj-row:first-of-type{border-top:1px solid var(--line);}
   .proj-row .row-head{display:flex; justify-content:space-between; gap:16px; align-items:baseline;}
-  .proj-row h3{font-size:1.05rem;}
-  .proj-row .sub{color:var(--graphite); font-size:0.92rem; margin-top:4px;}
-  .tags{margin-top:8px; display:flex; flex-wrap:wrap; gap:6px;}
-  .tag{font-family:'IBM Plex Mono', monospace; font-size:0.7rem; color:var(--blue); border:1px solid var(--line); padding:2px 7px;}
-  .expand-hint{font-family:'IBM Plex Mono', monospace; font-size:0.7rem; color:var(--graphite);}
+  .proj-row h3{font-size:1.26rem;}
+  .proj-row .sub{color:var(--graphite); font-size:1.1rem; margin-top:4px;}
+  .tags{margin-top:10px; display:flex; flex-wrap:wrap; gap:8px;}
+  .tag{font-family:'IBM Plex Mono', monospace; font-size:0.84rem; color:var(--blue); border:1px solid var(--line); padding:3px 8px;}
+  .expand-hint{font-family:'IBM Plex Mono', monospace; font-size:0.84rem; color:var(--graphite);}
   .detail{max-height:0; overflow:hidden; transition:max-height .35s ease;}
-  .proj-row.open .detail{max-height:800px; margin-top:14px;}
-  .detail-inner{border-top:1px dashed var(--line); padding-top:14px; display:grid; grid-template-columns:1fr 1.4fr; gap:20px;}
+  .proj-row.open .detail{max-height:800px; margin-top:16px;}
+  .detail-inner{border-top:1px dashed var(--line); padding-top:16px; display:grid; grid-template-columns:1fr 1.4fr; gap:24px;}
   @media (max-width:600px){.detail-inner{grid-template-columns:1fr;}}
-  .spec-list div{display:flex; justify-content:space-between; padding:5px 0; border-bottom:1px solid var(--line); font-size:0.85rem;}
+  .spec-list div{display:flex; justify-content:space-between; padding:6px 0; border-bottom:1px solid var(--line); font-size:1.02rem;}
   .spec-list span:first-child{color:var(--graphite);}
   .spec-list span:last-child{font-family:'IBM Plex Mono', monospace;}
-  .media-slot{border:1px dashed var(--line); color:var(--graphite); font-size:0.8rem; padding:14px; text-align:center; margin-bottom:10px;}
-  .narrative{font-size:0.92rem; color:var(--ink);}
+  .media-slot{border:1px dashed var(--line); color:var(--graphite); font-size:0.95rem; padding:16px; text-align:center; margin-bottom:12px;}
+  .narrative{font-size:1.1rem; color:var(--ink);}
   
   /* Code / Repo Button */
   .repo-link{
     display:inline-block;
-    margin-top:14px;
+    margin-top:16px;
     font-family:'IBM Plex Mono', monospace;
-    font-size:0.78rem;
+    font-size:0.94rem;
     color:var(--blue);
     text-decoration:none;
     border:1px solid var(--blue);
-    padding:4px 10px;
+    padding:5px 12px;
     border-radius:2px;
     transition:all 0.2s ease;
   }
@@ -119,22 +101,22 @@
     color:var(--paper);
   }
 
-  /* Experience */
-  .exp-row{display:grid; grid-template-columns:150px 1fr; gap:14px; padding:12px 0; border-top:1px solid var(--line);}
+  /* Experience (+20% Scaled) */
+  .exp-row{display:grid; grid-template-columns:220px 1fr; gap:16px; padding:16px 0; border-top:1px solid var(--line); font-size:1.1rem;}
   .exp-row:first-child{border-top:none;}
-  .exp-row .when{font-family:'IBM Plex Mono', monospace; font-size:0.78rem; color:var(--graphite);}
+  .exp-row .when{font-family:'IBM Plex Mono', monospace; font-size:0.94rem; color:var(--graphite);}
   .exp-row .what b{font-weight:600;}
   .exp-row .what .place{color:var(--graphite);}
+  @media (max-width:640px){.exp-row{grid-template-columns:1fr; gap:4px;}}
 
   /* Skills */
   .skill-cols{display:grid; grid-template-columns:repeat(3,1fr); gap:24px;}
   @media (max-width:640px){.skill-cols{grid-template-columns:1fr;}}
-  .skill-cols h4{font-size:0.8rem; color:var(--graphite); font-weight:500; margin-bottom:10px;}
-  .skill-cols ul{list-style:none; margin:0; padding:0; font-family:'IBM Plex Mono', monospace; font-size:0.85rem; display:flex; flex-wrap:wrap; gap:6px;}
+  .skill-cols h4{font-size:0.85rem; color:var(--graphite); font-weight:500; margin-bottom:10px;}
+  .skill-cols ul{list-style:none; margin:0; padding:0; font-family:'IBM Plex Mono', monospace; font-size:0.9rem; display:flex; flex-wrap:wrap; gap:6px;}
   .skill-cols li{border:1px solid var(--line); padding:3px 8px;}
 
   footer{border-top:1px solid var(--line); padding:30px 0 50px; color:var(--graphite); font-size:0.9rem;}
-  footer a{margin-right:18px;}
 </style>
 </head>
 <body>
@@ -144,17 +126,15 @@
     <div class="titleblock">
       <div>
         <h1>Spencer D. Kelly</h1>
-        <div class="role">Mechanical Engineer — Precision Systems &amp; Robotics</div>
+        <div class="role">
+          <div>M.S. Mechanical Engineering</div>
+          <div>B.S. Bioengineering</div>
+        </div>
         <div class="header-links">
           <a href="https://www.linkedin.com/in/Mech1" target="_blank">LinkedIn</a>
           <a href="mailto:spencerkelly25@g.ucla.edu">Email</a>
           <a href="#">Download Résumé</a>
         </div>
-      </div>
-      <div class="tb-table">
-        <div><span>Location</span><span>Los Angeles / Fremont, CA</span></div>
-        <div><span>Focus</span><span>Precision mechanisms, controls, medical devices</span></div>
-        <div><span>Status</span><span>Open to opportunities</span></div>
       </div>
     </div>
     <nav>
@@ -162,51 +142,29 @@
       <a href="#projects">Projects</a>
       <a href="#experience">Experience</a>
       <a href="#skills">Skills</a>
-      <a href="#contact">Contact</a>
     </nav>
   </header>
 
-  <section class="hero">
-    <div>
-      <div class="sheet-tag">SHEET 01 — INTRO</div>
-      <h2>I build the mechanisms that make sure a measurement can be trusted.</h2>
-      <p>MS Mechanical Engineering (Robotics), BS Bioengineering — UCLA. Currently validating precision robotics at Ultima Genomics. I work at the point where mechanical tolerance, control theory, and biology meet.</p>
-    </div>
-    <div class="gauge-wrap" id="gaugeWrap">
-      <div class="gauge-label">RESIDUAL POSITION ERROR</div>
-      <svg width="200" height="120" viewBox="0 0 200 120">
-        <path d="M 20 100 A 80 80 0 0 1 180 100" fill="none" stroke="var(--line)" stroke-width="10"/>
-        <path d="M 20 100 A 80 80 0 0 1 60 32" fill="none" stroke="var(--orange)" stroke-width="10" opacity="0.55"/>
-        <path d="M 140 32 A 80 80 0 0 1 180 100" fill="none" stroke="var(--blue)" stroke-width="10" opacity="0.85"/>
-        <line id="needle" x1="100" y1="100" x2="100" y2="30" stroke="var(--ink)" stroke-width="3"/>
-        <circle cx="100" cy="100" r="5" fill="var(--ink)"/>
-      </svg>
-      <div class="readout">60 µm → <span class="orange">&lt;10 µm</span></div>
-    </div>
-  </section>
-
-  <hr class="rule">
-
   <section id="about">
-    <div class="sheet-tag">SHEET 02 — ABOUT</div>
+    <div class="sheet-tag">SHEET 01 — ABOUT</div>
     <h2>About</h2>
-    <p>I'm drawn to problems that sit across disciplines: a lead screw that behaves differently than its spec sheet claims, a vision system thrown off by an unexpected wavelength, a hydrogel that needs to behave like real tissue. My background spans tissue biomechanics, orthopedics, robotics, and electromechanical design, and most of my work has involved taking a mechanism from a rough idea to something that performs reliably under real cycles, real tolerances, and real scrutiny.</p>
+    <p>Recent graduate student of the UCLA MAE department with an emphasis on robotics and mechatronic systems. I graduated with a B.S. in Bioengineering at UCLA with an interest in orthopedics, bionics, medical device design, and automation process development. I've done research in tissue engineering, microfabrication, and bioprinting, and helped in designing a small-scale bioreactor in collaboration with the UCLA Medical School. Outside of engineering, I'm passionate about environmental conservation, cooking, climbing, and learning different languages!</p>
   </section>
 
   <hr class="rule">
 
   <section id="projects">
-    <div class="sheet-tag">SHEET 03 — PROJECTS</div>
+    <div class="sheet-tag">SHEET 02 — PROJECTS</div>
     <h2>Projects</h2>
 
     <!-- Project 1 -->
-    <div class="proj-row open" onclick="this.classList.toggle('open')">
+    <div class="proj-row" onclick="this.classList.toggle('open')">
       <div class="row-head">
         <div>
           <h3>Precision Motion System Validation</h3>
-          <div class="sub">Ultima Genomics — Systems Automation Engineering Intern, June 2026–Present</div>
+          <div class="sub">Ultima Genomics — Systems Automation Engineering Intern, June 2026 – Present</div>
         </div>
-        <div class="expand-hint">tap to collapse</div>
+        <div class="expand-hint">tap to expand</div>
       </div>
       <div class="tags">
         <span class="tag">ACSPL+</span><span class="tag">DVT</span><span class="tag">DFMEA</span><span class="tag">Python</span>
@@ -235,7 +193,7 @@
       <div class="row-head">
         <div>
           <h3>Autonomous Air Hockey Defender — "What The Puck"</h3>
-          <div class="sub">Team Lead — Mar–Jun 2026</div>
+          <div class="sub">Team Lead — March 2026 – June 2026</div>
         </div>
         <div class="expand-hint">tap to expand</div>
       </div>
@@ -262,7 +220,7 @@
       <div class="row-head">
         <div>
           <h3>Signal Processed ECG/EMG Acquisition System</h3>
-          <div class="sub">Individual Project — Feb–Mar 2026</div>
+          <div class="sub">Individual Project — February 2026 – March 2026</div>
         </div>
         <div class="expand-hint">tap to expand</div>
       </div>
@@ -289,7 +247,7 @@
       <div class="row-head">
         <div>
           <h3>5-DoF Cake Icing Robot</h3>
-          <div class="sub">Electronics Lead — Sept–Dec 2025</div>
+          <div class="sub">Electronics Lead — September 2025 – December 2025</div>
         </div>
         <div class="expand-hint">tap to expand</div>
       </div>
@@ -310,7 +268,7 @@
       <div class="row-head">
         <div>
           <h3>Vision Sensing Hand Mimic</h3>
-          <div class="sub">Individual Project — Jan–May 2025</div>
+          <div class="sub">Individual Project — January 2025 – May 2025</div>
         </div>
         <div class="expand-hint">tap to expand</div>
       </div>
@@ -337,7 +295,7 @@
       <div class="row-head">
         <div>
           <h3>Small-Scale Bioreactor</h3>
-          <div class="sub">Senior Capstone, Project Manager — Sept 2024–Mar 2025</div>
+          <div class="sub">Senior Capstone, Project Manager — September 2024 – March 2025</div>
         </div>
         <div class="expand-hint">tap to expand</div>
       </div>
@@ -358,20 +316,20 @@
   <hr class="rule">
 
   <section id="experience">
-    <div class="sheet-tag">SHEET 04 — EXPERIENCE</div>
+    <div class="sheet-tag">SHEET 03 — EXPERIENCE</div>
     <h2>Experience</h2>
-    <div class="exp-row"><div class="when">June 2026–present</div><div class="what"><b>Systems Automation Engineering Intern</b> <span class="place">— Ultima Genomics</span></div></div>
-    <div class="exp-row"><div class="when">May 2025–Mar 2026</div><div class="what"><b>Teaching Assistant / Student Liaison</b> <span class="place">— UCLA Bioengineering</span></div></div>
-    <div class="exp-row"><div class="when">July 2025–Sept 2025</div><div class="what"><b>CNC Machining Intern</b> <span class="place">— 3-Way Machining</span></div></div>
-    <div class="exp-row"><div class="when">June 2024–Sept 2024</div><div class="what"><b>Process Engineering Intern</b> <span class="place">— Applied Medical</span></div></div>
-    <div class="exp-row"><div class="when">May 2023–June 2024</div><div class="what"><b>Tissue Engineering Research Assistant</b> <span class="place">— UCLA Annabi Lab</span></div></div>
-    <div class="exp-row"><div class="when">Aug 2022–June 2025</div><div class="what"><b>Lead Resident Assistant</b> <span class="place">— UCLA Residential Life</span></div></div>
+    <div class="exp-row"><div class="when">June 2026 – Present</div><div class="what"><b>Systems Automation Engineering Intern</b> <span class="place">— Ultima Genomics</span></div></div>
+    <div class="exp-row"><div class="when">May 2025 – March 2026</div><div class="what"><b>Teaching Assistant / Student Liaison</b> <span class="place">— UCLA Bioengineering</span></div></div>
+    <div class="exp-row"><div class="when">July 2025 – September 2025</div><div class="what"><b>CNC Machining Intern</b> <span class="place">— 3-Way Machining</span></div></div>
+    <div class="exp-row"><div class="when">June 2024 – September 2024</div><div class="what"><b>Process Engineering Intern</b> <span class="place">— Applied Medical</span></div></div>
+    <div class="exp-row"><div class="when">May 2023 – June 2024</div><div class="what"><b>Tissue Engineering Research Assistant</b> <span class="place">— UCLA Annabi Lab</span></div></div>
+    <div class="exp-row"><div class="when">August 2022 – June 2025</div><div class="what"><b>Lead Resident Assistant</b> <span class="place">— UCLA Residential Life</span></div></div>
   </section>
 
   <hr class="rule">
 
   <section id="skills">
-    <div class="sheet-tag">SHEET 05 — SKILLS</div>
+    <div class="sheet-tag">SHEET 04 — SKILLS</div>
     <h2>Skills</h2>
     <div class="skill-cols">
       <div>
@@ -389,15 +347,8 @@
     </div>
   </section>
 
-  <footer id="contact">
-    <a href="https://www.linkedin.com/in/Mech1" target="_blank">LinkedIn</a>
-    <a href="mailto:spencerkelly25@g.ucla.edu">spencerkelly25@g.ucla.edu</a>
-    <a href="#">Download Résumé</a>
-  </footer>
+  <footer></footer>
 </div>
 
-<script>
-  requestAnimationFrame(()=> setTimeout(()=> document.getElementById('gaugeWrap').classList.add('settled'), 200));
-</script>
 </body>
 </html>
