@@ -79,9 +79,30 @@
   .sheet-tag{font-family:'IBM Plex Mono', monospace; font-size:0.72rem; color:var(--graphite); margin-bottom:8px;}
   section h2{font-size:1.5rem; margin-bottom:18px;}
 
-  /* About */
-  #about p{max-width:70ch; color:var(--ink); font-size:1.05rem;}
-  #about p + p{margin-top:14px;}
+  /* About Layout with Image */
+  .about-container{
+    display:grid;
+    grid-template-columns:1fr 280px;
+    gap:36px;
+    align-items:center;
+  }
+  .about-text p{color:var(--ink); font-size:1.05rem; margin:0;}
+  .about-text p + p{margin-top:14px;}
+  
+  .about-media img{
+    width:100%;
+    max-width:280px;
+    height:auto;
+    display:block;
+    border-radius:4px;
+    transform:scaleX(-1); /* Flips image horizontally. Remove this line if you want original direction */
+  }
+
+  @media (max-width:768px){
+    .about-container{grid-template-columns:1fr;}
+    .about-media{text-align:center; margin-top:10px;}
+    .about-media img{margin:0 auto; max-width:240px;}
+  }
 
   /* Projects index */
   .proj-row{border:1px solid var(--line); border-top:none; padding:19px 22px; cursor:pointer; background:var(--card);}
@@ -151,8 +172,8 @@
         <div class="role">B.S. Bioengineering</div>
         <div class="header-links">
           <a href="https://www.linkedin.com/in/Mech1" target="_blank">LinkedIn</a>
-          <a href="Spencer_Kelly_resume.pdf" download="Spencer_Kelly_resume.pdf">Download Resume</a>
           <a href="mailto:spencerkelly25@g.ucla.edu">Email</a>
+          <a href="Spencer_Kelly_resume.pdf" download="Spencer_Kelly_resume.pdf">Download Resume</a>
         </div>
       </div>
     </div>
@@ -167,9 +188,16 @@
   <section id="about">
     <div class="sheet-tag">01</div>
     <h2>About</h2>
-    <p>Class of 2026 graduate of the UCLA MAE department with an emphasis on robotics and mechatronic systems. Class of 2025 undergraduate with a B.S. in Bioengineering at UCLA with an interest in orthopedics, bionics, medical device design, and automation process development. I've done research in tissue engineering, microfabrication, and bioprinting, and helped design a small-scale bioreactor in collaboration with the UCLA Medical School.</p>
-    <p>I also served as a student liaison during my time as both an undergraduate and graduate student at UCLA, working with both my department and ABET directly to gather, construct, and implement feedback on the undergraduate curriculum from former and current students. 16 pages and 50+ signatures later, I was able to present my solutions to the internal and external committees, with changes to be implemented starting Fall 2026.</p>
-    <p>Outside of engineering and academics, I'm passionate about hiking, cooking, climbing, and learning new languages!</p>
+    <div class="about-container">
+      <div class="about-text">
+        <p>Class of 2026 graduate of the UCLA MAE department with an emphasis on robotics and mechatronic systems. Class of 2025 undergraduate with a B.S. in Bioengineering at UCLA with an interest in orthopedics, bionics, medical device design, and automation process development. I've done research in tissue engineering, microfabrication, and bioprinting, and helped design a small-scale bioreactor in collaboration with the UCLA Medical School.</p>
+        <p>I also served as a student liaison during my time as both an undergraduate and graduate student at UCLA, working with both my department and ABET directly to gather, construct, and implement feedback on the undergraduate curriculum from former and current students. 16 pages and 50+ signatures later, I was able to present my solutions to the internal and external committees, with changes to be implemented starting Fall 2026.</p>
+        <p>Outside of engineering and academics, I'm passionate about hiking, cooking, climbing, and learning new languages!</p>
+      </div>
+      <div class="about-media">
+        <img src="hand_Art.webp" alt="Anatomical Hand Illustration">
+      </div>
+    </div>
   </section>
 
   <hr class="rule">
@@ -182,12 +210,12 @@
     <div class="proj-row" onclick="this.classList.toggle('open')">
       <div class="row-head">
         <div>
-          <h3>Autonomous PID Air Hockey Defender</h3>
-          <div class="sub">Team Lead // March 2026 – June 2026</div>
+          <h3>Autonomous Air Hockey Defender - "What The Puck"</h3>
+          <div class="sub">Team Lead - March 2026 – June 2026</div>
         </div>
         <div class="expand-hint"><span class="hint-expand">tap to expand</span><span class="hint-collapse">tap to collapse</span></div>
       </div>
-      <div class="tags"><span class="tag">OpenCV</span><span class="tag">Raspberry Pi</span><span class="tag">PID Control</span><span class="tag">Dynamixel Servos</span></div>
+      <div class="tags"><span class="tag">OpenCV</span><span class="tag">Raspberry Pi</span><span class="tag">PID</span><span class="tag">Dynamixel</span></div>
       <div class="detail">
         <div class="detail-inner">
           <div>
@@ -198,10 +226,8 @@
             </div>
           </div>
           <div class="narrative">
-            <p>Built a 2-DoF gantry air-hockey defender with a Raspberry Pi 4B: an HSV vision pipeline with a custom calibration tool for real-time puck tracking, feeding a decentralized task-space PID controller with EMA filtering, integral windup clamping, and threshold logic driving Dynamixel servos. See below for GitHub links to the code used and the final report.</p>
-            <a href="https://github.com/SpencerKelly21/SpencerKellyPortfolio/blob/main/AirHockeyReport.pdf" target="_blank" class="repo-link" onclick="event.stopPropagation();">Report PDF &rarr;</a>
-            <a href="https://github.com/SpencerKelly21/SpencerKellyPortfolio/blob/main/AirHockeyPID.py" target="_blank" class="repo-link" onclick="event.stopPropagation();">PID Source Code &rarr;</a>
-            <a href="https://github.com/SpencerKelly21/SpencerKellyPortfolio/blob/main/AirHockeyHSV.py" target="_blank" class="repo-link" onclick="event.stopPropagation();">HSV Tuning Code &rarr;</a>
+            <p>Built a 2-DoF gantry defender on a Raspberry Pi 4B: an HSV vision pipeline with a custom calibration tool for real-time puck tracking, feeding a decentralized task-space PID controller with EMA filtering, integral windup clamping, and deadband logic driving Dynamixel servos.</p>
+            <a href="https://github.com/spencerkelly21/SpencerKellyPortfolio" target="_blank" class="repo-link" onclick="event.stopPropagation();">View Source Code &rarr;</a>
           </div>
         </div>
       </div>
@@ -212,11 +238,11 @@
       <div class="row-head">
         <div>
           <h3>Signal Processed ECG/EMG Acquisition System</h3>
-          <div class="sub">Individual Project // February 2026 – March 2026</div>
+          <div class="sub">Individual Project - February 2026 – March 2026</div>
         </div>
         <div class="expand-hint"><span class="hint-expand">tap to expand</span><span class="hint-collapse">tap to collapse</span></div>
       </div>
-      <div class="tags"><span class="tag">ESP32-S3</span><span class="tag">INA826</span><span class="tag">FFT</span><span class="tag">Processing (Java)</span><span class="tag">Signal Processing</span></div>
+      <div class="tags"><span class="tag">ESP32-S3</span><span class="tag">INA826</span><span class="tag">FFT</span><span class="tag">Processing (Java)</span></div>
       <div class="detail">
         <div class="detail-inner">
           <div>
@@ -239,7 +265,7 @@
       <div class="row-head">
         <div>
           <h3>5-DoF Cake Icing Robot</h3>
-          <div class="sub">Electronics Lead // September 2025 – December 2025</div>
+          <div class="sub">Electronics Lead - September 2025 – December 2025</div>
         </div>
         <div class="expand-hint"><span class="hint-expand">tap to expand</span><span class="hint-collapse">tap to collapse</span></div>
       </div>
@@ -260,7 +286,7 @@
       <div class="row-head">
         <div>
           <h3>Vision Sensing Hand Mimic</h3>
-          <div class="sub">Individual Project // January 2025 – May 2025</div>
+          <div class="sub">Individual Project - January 2025 – May 2025</div>
         </div>
         <div class="expand-hint"><span class="hint-expand">tap to expand</span><span class="hint-collapse">tap to collapse</span></div>
       </div>
@@ -287,7 +313,7 @@
       <div class="row-head">
         <div>
           <h3>Small-Scale Bioreactor</h3>
-          <div class="sub">Senior Capstone, Project Manager // September 2024 – March 2025</div>
+          <div class="sub">Senior Capstone, Project Manager - September 2024 – March 2025</div>
         </div>
         <div class="expand-hint"><span class="hint-expand">tap to expand</span><span class="hint-collapse">tap to collapse</span></div>
       </div>
