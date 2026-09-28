@@ -70,7 +70,7 @@
     padding-bottom:14px; 
     border-top:1px solid var(--line); 
     flex-wrap:wrap; 
-    font-size:1.4rem;
+    font-size:1.35rem;
   }
   nav a{color:var(--ink); text-decoration:none; border-bottom:1px solid transparent;}
   nav a:hover{border-bottom-color:var(--blue);}
@@ -95,7 +95,7 @@
     height:auto;
     display:block;
     border-radius:4px;
-    transform:scaleY(-1); /* Flips image vert. */
+    transform:scaleX(-1); /* Flips image horizontally */
   }
 
   @media (max-width:768px){
@@ -116,22 +116,55 @@
   .expand-hint .hint-collapse{display:none;}
   .proj-row.open .expand-hint .hint-expand{display:none;}
   .proj-row.open .expand-hint .hint-collapse{display:inline;}
+  
+  /* Project Detail Media-Hero Layout */
   .detail{max-height:0; overflow:hidden; transition:max-height .35s ease;}
   .proj-row.open .detail{max-height:2400px; margin-top:14px;}
-  .detail-inner{border-top:1px dashed var(--line); padding-top:14px; display:grid; grid-template-columns:1fr 1.4fr; gap:24px;}
-  @media (max-width:600px){.detail-inner{grid-template-columns:1fr;}}
+  .detail-inner{border-top:1px dashed var(--line); padding-top:18px; display:flex; flex-direction:column; gap:20px;}
+  
+  .media-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));
+    gap:14px;
+  }
+  .media-slot{
+    border:1px dashed var(--line); 
+    color:var(--graphite); 
+    font-size:0.96rem; 
+    padding:8px; 
+    text-align:center; 
+    border-radius:4px;
+    background:rgba(0,0,0,0.02);
+  }
+  .media-slot img, .media-slot video{
+    width:100%; 
+    height:auto; 
+    max-height:480px;
+    object-fit:contain;
+    display:block; 
+    border-radius:2px;
+  }
+  .media-slot iframe{width:100%; aspect-ratio:16/9; border:0; display:block;}
+  
+  .detail-body{
+    display:grid;
+    grid-template-columns:1.4fr 1fr;
+    gap:28px;
+    align-items:start;
+  }
+  @media (max-width:680px){
+    .detail-body{grid-template-columns:1fr; gap:18px;}
+  }
+
   .spec-list div{display:flex; justify-content:space-between; padding:6px 0; border-bottom:1px solid var(--line); font-size:1.02rem;}
   .spec-list span:first-child{color:var(--graphite);}
   .spec-list span:last-child{font-family:'IBM Plex Mono', monospace;}
-  .media-slot{border:1px dashed var(--line); color:var(--graphite); font-size:0.96rem; padding:17px; text-align:center; margin-bottom:10px; border-radius:4px;}
-  .media-slot img, .media-slot video{width:100%; height:auto; display:block; border-radius:2px;}
-  .media-slot iframe{width:100%; aspect-ratio:16/9; border:0; display:block;}
   .narrative{font-size:1.1rem; color:var(--ink);}
 
   /* Code / Repo Button */
   .repo-link{
     display:inline-block;
-    margin-top:14px;
+    margin-top:10px;
     margin-right:8px;
     font-family:'IBM Plex Mono', monospace;
     font-size:0.94rem;
@@ -197,7 +230,7 @@
     <h2>About</h2>
     <div class="about-container">
       <div class="about-text">
-        <p> UCLA class of 2026 graduate with an M.S. in Mechanical Engineering focusing on robotics and mechatronic systems. UCLA class of 2025 graduate with a B.S. in Bioengineering focusing on orthopedics, bionics, medical device design, and automation process development. I've done research in tissue engineering, microfabrication, and bioprinting, and helped design a small-scale bioreactor in collaboration with the UCLA Medical School.</p>
+        <p>UCLA class of 2026 graduate with an M.S. in Mechanical Engineering focusing on robotics and mechatronic systems. UCLA class of 2025 graduate with a B.S. in Bioengineering focusing on orthopedics, bionics, medical device design, and automation process development. I've done research in tissue engineering, microfabrication, and bioprinting, and helped design a small-scale bioreactor in collaboration with the UCLA Medical School.</p>
         <p>I also served as a student liaison during my time as both an undergraduate and graduate student at UCLA, working with both my department and ABET directly to gather, construct, and implement feedback on the undergraduate curriculum from former and current students. 16 pages and 50+ signatures later, I was able to present my solutions to the internal and external committees, with changes to be implemented starting Fall 2026.</p>
         <p>Outside of engineering and academics, I'm passionate about hiking, cooking, climbing, and learning new languages! If you ever want to chat about my experiences, send an email to spencerkelly25@g.ucla.edu.</p>
       </div>
@@ -225,18 +258,24 @@
       <div class="tags"><span class="tag">OpenCV</span><span class="tag">Raspberry Pi</span><span class="tag">PID Control</span><span class="tag">Dynamixel Servos</span></div>
       <div class="detail">
         <div class="detail-inner">
-          <div>
+          <div class="media-grid">
             <div class="media-slot">Add demo video or vision screenshot</div>
-            <div class="spec-list">
-              <div><span>RMS tracking error</span><span>1.54 cm</span></div>
-              <div><span>Settling time</span><span>0.85 s</span></div>
-            </div>
           </div>
-          <div class="narrative">
-            <p>Built a 2-DoF gantry air-hockey defender with a Raspberry Pi 4B: an HSV vision pipeline with a custom calibration tool for real-time puck tracking, feeding a decentralized task-space PID controller with EMA filtering, integral windup clamping, and threshold logic driving Dynamixel servos. See below for GitHub links to the code used and the final report.</p>
-            <a href="AirHockeyReport.pdf" target="_blank" class="repo-link" onclick="event.stopPropagation();">Report PDF &rarr;</a>
-            <a href="https://github.com/SpencerKelly21/SpencerKellyPortfolio/blob/main/AirHockeyPID.py" target="_blank" class="repo-link" onclick="event.stopPropagation();">PID Source Code &rarr;</a>
-            <a href="https://github.com/SpencerKelly21/SpencerKellyPortfolio/blob/main/AirHockeyHSV.py" target="_blank" class="repo-link" onclick="event.stopPropagation();">HSV Tuning Code &rarr;</a>
+          <div class="detail-body">
+            <div class="narrative">
+              <p>Built a 2-DoF gantry air-hockey defender with a Raspberry Pi 4B: an HSV vision pipeline with a custom calibration tool for real-time puck tracking, feeding a decentralized task-space PID controller with EMA filtering, integral windup clamping, and threshold logic driving Dynamixel servos. See below for GitHub links to the code used and the final report.</p>
+            </div>
+            <div>
+              <div class="spec-list">
+                <div><span>RMS tracking error</span><span>1.54 cm</span></div>
+                <div><span>Settling time</span><span>0.85 s</span></div>
+              </div>
+              <div style="margin-top:14px;">
+                <a href="AirHockeyReport.pdf" target="_blank" class="repo-link" onclick="event.stopPropagation();">Report PDF &rarr;</a>
+                <a href="https://github.com/SpencerKelly21/SpencerKellyPortfolio/blob/main/AirHockeyPID.py" target="_blank" class="repo-link" onclick="event.stopPropagation();">PID Code &rarr;</a>
+                <a href="https://github.com/SpencerKelly21/SpencerKellyPortfolio/blob/main/AirHockeyHSV.py" target="_blank" class="repo-link" onclick="event.stopPropagation();">HSV Code &rarr;</a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -254,18 +293,24 @@
       <div class="tags"><span class="tag">ESP32-S3</span><span class="tag">INA826</span><span class="tag">FFT</span><span class="tag">Processing (Java)</span><span class="tag">Signal Processing</span></div>
       <div class="detail">
         <div class="detail-inner">
-          <div>
+          <div class="media-grid">
             <div class="media-slot">
               <video src="ECG_Video.MOV#t=0.1" controls playsinline preload="metadata"></video>
             </div>
-            <div class="spec-list">
-              <div><span>Sampling Rate</span><span>250 Hz (12-bit)</span></div>
-              <div><span>Filter Cutoff</span><span> 40 Hz Low Pass</span></div>
-            </div>
           </div>
-          <div class="narrative">
-            <p>Designed and validated a functional ECG/EMG from first principles using an INA826 instrumentation amp, RC network, and ESP32-S3. Applied FFT and a brick-wall low-pass filter to isolate cardiac signals, visualized in a custom 3-pane Processing interface (raw signal, filtered signal, frequency domain). See video(s) for a live demo.</p>
-            <a href="https://github.com/spencerkelly21/SpencerKellyPortfolio" target="_blank" class="repo-link" onclick="event.stopPropagation();">View Source Code &rarr;</a>
+          <div class="detail-body">
+            <div class="narrative">
+              <p>Designed and validated a functional ECG/EMG from first principles using an INA826 instrumentation amp, RC network, and ESP32-S3. Applied FFT and a brick-wall low-pass filter to isolate cardiac signals, visualized in a custom 3-pane Processing interface. See video above for a live demo.</p>
+            </div>
+            <div>
+              <div class="spec-list">
+                <div><span>Sampling Rate</span><span>250 Hz (12-bit)</span></div>
+                <div><span>Filter Cutoff</span><span>40 Hz Low Pass</span></div>
+              </div>
+              <div style="margin-top:14px;">
+                <a href="https://github.com/spencerkelly21/SpencerKellyPortfolio" target="_blank" class="repo-link" onclick="event.stopPropagation();">View Source Code &rarr;</a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -283,10 +328,18 @@
       <div class="tags"><span class="tag">ESP32</span><span class="tag">RS-485</span><span class="tag">DH Params</span><span class="tag">Dynamixel Servos</span></div>
       <div class="detail">
         <div class="detail-inner">
-          <div><div class="media-slot">Add build photo or motion clip</div></div>
-          <div class="narrative">
-            <p>A 5-DoF manipulator (3 rotational, 2 linear joints) nicknamed CHRISTMAS, designed to use inverse and forward kinematics to apply icing to cakes of various sizes, with customizable messages included! Implemented electronics and task programming, driving Dynamixel MX-28AR servos via an ESP32, with custom packet-level functions for real-time trajectory behavior using position and velocity control.</p>
-            <a href="Cake%20Icing%20Robot%20Report.pdf" target="_blank" class="repo-link" onclick="event.stopPropagation();">Report PDF &rarr;</a>
+          <div class="media-grid">
+            <div class="media-slot">Add build photo or motion clip</div>
+          </div>
+          <div class="detail-body">
+            <div class="narrative">
+              <p>A 5-DoF manipulator (3 rotational, 2 linear joints) nicknamed CHRISTMAS, designed to use inverse and forward kinematics to apply icing to cakes of various sizes, with customizable messages included! Implemented electronics and task programming, driving Dynamixel MX-28AR servos via an ESP32, with custom packet-level functions for real-time trajectory behavior using position and velocity control.</p>
+            </div>
+            <div>
+              <div style="margin-top:14px;">
+                <a href="Cake%20Icing%20Robot%20Report.pdf" target="_blank" class="repo-link" onclick="event.stopPropagation();">Report PDF &rarr;</a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -304,16 +357,22 @@
       <div class="tags"><span class="tag">RP2040</span><span class="tag">OpenCV</span><span class="tag">Processing</span><span class="tag">Servos</span></div>
       <div class="detail">
         <div class="detail-inner">
-          <div>
+          <div class="media-grid">
             <div class="media-slot">Add demo video or mechanism photo</div>
-            <div class="spec-list">
-              <div><span>False Detections Filtered</span><span>97%</span></div>
-              <div><span>Power Supply</span><span>5V / Buck Converter</span></div>
-            </div>
           </div>
-          <div class="narrative">
-            <p>Developed a simple fingertip recognition program with Processing, RP2040 PicoW microcontroller, and OpenCV (Java-based). Built and tuned a mechanical hand with 4 servo-driven fingers to mimic detected movements, incorporating digital debouncing to eliminate false detections.</p>
-            <a href="https://github.com/spencerkelly21/SpencerKellyPortfolio" target="_blank" class="repo-link" onclick="event.stopPropagation();">View Source Code &rarr;</a>
+          <div class="detail-body">
+            <div class="narrative">
+              <p>Developed a simple fingertip recognition program with Processing, RP2040 PicoW microcontroller, and OpenCV (Java-based). Built and tuned a mechanical hand with 4 servo-driven fingers to mimic detected movements, incorporating digital debouncing to eliminate false detections.</p>
+            </div>
+            <div>
+              <div class="spec-list">
+                <div><span>False Detections Filtered</span><span>97%</span></div>
+                <div><span>Power Supply</span><span>5V / Buck Converter</span></div>
+              </div>
+              <div style="margin-top:14px;">
+                <a href="https://github.com/spencerkelly21/SpencerKellyPortfolio" target="_blank" class="repo-link" onclick="event.stopPropagation();">View Source Code &rarr;</a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -331,10 +390,18 @@
       <div class="tags"><span class="tag">COMSOL</span><span class="tag">SolidWorks</span><span class="tag">Tissue Engineering</span></div>
       <div class="detail">
         <div class="detail-inner">
-          <div><div class="media-slot">Add CAD render or COMSOL plot</div></div>
-          <div class="narrative">
-            <p>Led a team building a dual-mechanism bioreactor promoting cell differentiation via stretch and perfusion. Ran COMSOL simulations to evaluate flow rate and shear stress in soft tissue and designed a linear track with self-lubricating bearings.</p>
-            <a href="https://github.com/spencerkelly21/SpencerKellyPortfolio" target="_blank" class="repo-link" onclick="event.stopPropagation();">View CAD / CAD Models &rarr;</a>
+          <div class="media-grid">
+            <div class="media-slot">Add CAD render or COMSOL plot</div>
+          </div>
+          <div class="detail-body">
+            <div class="narrative">
+              <p>Led a team building a dual-mechanism bioreactor promoting cell differentiation via stretch and perfusion. Ran COMSOL simulations to evaluate flow rate and shear stress in soft tissue and designed a linear track with self-lubricating bearings.</p>
+            </div>
+            <div>
+              <div style="margin-top:14px;">
+                <a href="https://github.com/spencerkelly21/SpencerKellyPortfolio" target="_blank" class="repo-link" onclick="event.stopPropagation();">View CAD / CAD Models &rarr;</a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
