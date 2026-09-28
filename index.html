@@ -70,7 +70,7 @@
     padding-bottom:14px; 
     border-top:1px solid var(--line); 
     flex-wrap:wrap; 
-    font-size:1.5rem;
+    font-size:1.35rem;
   }
   nav a{color:var(--ink); text-decoration:none; border-bottom:1px solid transparent;}
   nav a:hover{border-bottom-color:var(--blue);}
@@ -95,7 +95,7 @@
     height:auto;
     display:block;
     border-radius:4px;
-    transform:scaleX(-1); /* Flips image horizontally */
+    transform:scaleY(-1); /* Flips image vert. */
   }
 
   @media (max-width:768px){
@@ -154,6 +154,11 @@
   .exp-row .what b{font-weight:600;}
   .exp-row .what .place{color:var(--graphite);}
 
+  @media (max-width:640px){
+    .exp-row{grid-template-columns:1fr; gap:4px;}
+    .exp-row .when{white-space:normal;}
+  }
+  
   /* Skills */
   .skill-cols{display:grid; grid-template-columns:repeat(3,1fr); gap:28px;}
   @media (max-width:640px){.skill-cols{grid-template-columns:1fr;}}
@@ -191,7 +196,7 @@
     <h2>About</h2>
     <div class="about-container">
       <div class="about-text">
-        <p> UCLA class of 2026 graduate with an M.S. in Mechanical Engineering focusing on robotics and mechatronic systems. UCLA class of 2025 graduate with a B.S. in Bioengineering with an interest in orthopedics, bionics, medical device design, and automation process development. I've done research in tissue engineering, microfabrication, and bioprinting, and helped design a small-scale bioreactor in collaboration with the UCLA Medical School.</p>
+        <p> UCLA class of 2026 graduate with an M.S. in Mechanical Engineering focusing on robotics and mechatronic systems. UCLA class of 2025 graduate with a B.S. in Bioengineering focusing on orthopedics, bionics, medical device design, and automation process development. I've done research in tissue engineering, microfabrication, and bioprinting, and helped design a small-scale bioreactor in collaboration with the UCLA Medical School.</p>
         <p>I also served as a student liaison during my time as both an undergraduate and graduate student at UCLA, working with both my department and ABET directly to gather, construct, and implement feedback on the undergraduate curriculum from former and current students. 16 pages and 50+ signatures later, I was able to present my solutions to the internal and external committees, with changes to be implemented starting Fall 2026.</p>
         <p>Outside of engineering and academics, I'm passionate about hiking, cooking, climbing, and learning new languages! If you ever want to chat about my experiences, send an email to spencerkelly25@g.ucla.edu.</p>
       </div>
@@ -252,7 +257,7 @@
             <div class="media-slot">Add signal plot or 3-pane GUI</div>
             <div class="spec-list">
               <div><span>Sampling Rate</span><span>250 Hz (12-bit)</span></div>
-              <div><span>Filter Cutoff</span><span>&lt; 40 Hz</span></div>
+              <div><span>Filter Cutoff</span><span> 40 Hz Low Pass</span></div>
             </div>
           </div>
           <div class="narrative">
@@ -272,7 +277,7 @@
         </div>
         <div class="expand-hint"><span class="hint-expand">tap to expand</span><span class="hint-collapse">tap to collapse</span></div>
       </div>
-      <div class="tags"><span class="tag">ESP32</span><span class="tag">Robotics</span><span class="tag">DH Params</span><span class="tag">Dynamixel Servos</span><span class="tag">Task Spaces</span></div>
+      <div class="tags"><span class="tag">ESP32</span><span class="tag">RS-485</span><span class="tag">DH Params</span><span class="tag">Dynamixel Servos</span></div>
       <div class="detail">
         <div class="detail-inner">
           <div><div class="media-slot">Add build photo or motion clip</div></div>
