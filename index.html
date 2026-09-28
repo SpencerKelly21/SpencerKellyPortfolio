@@ -117,7 +117,7 @@
   .proj-row.open .expand-hint .hint-expand{display:none;}
   .proj-row.open .expand-hint .hint-collapse{display:inline;}
   .detail{max-height:0; overflow:hidden; transition:max-height .35s ease;}
-  .proj-row.open .detail{max-height:900px; margin-top:14px;}
+  .proj-row.open .detail{max-height:2400px; margin-top:14px;}
   .detail-inner{border-top:1px dashed var(--line); padding-top:14px; display:grid; grid-template-columns:1fr 1.4fr; gap:24px;}
   @media (max-width:600px){.detail-inner{grid-template-columns:1fr;}}
   .spec-list div{display:flex; justify-content:space-between; padding:6px 0; border-bottom:1px solid var(--line); font-size:1.02rem;}
@@ -125,6 +125,7 @@
   .spec-list span:last-child{font-family:'IBM Plex Mono', monospace;}
   .media-slot{border:1px dashed var(--line); color:var(--graphite); font-size:0.96rem; padding:17px; text-align:center; margin-bottom:10px; border-radius:4px;}
   .media-slot img, .media-slot video{width:100%; height:auto; display:block; border-radius:2px;}
+  .media-slot iframe{width:100%; aspect-ratio:16/9; border:0; display:block;}
   .narrative{font-size:1.1rem; color:var(--ink);}
 
   /* Code / Repo Button */
@@ -234,8 +235,8 @@
           <div class="narrative">
             <p>Built a 2-DoF gantry air-hockey defender with a Raspberry Pi 4B: an HSV vision pipeline with a custom calibration tool for real-time puck tracking, feeding a decentralized task-space PID controller with EMA filtering, integral windup clamping, and threshold logic driving Dynamixel servos. See below for GitHub links to the code used and the final report.</p>
             <a href="AirHockeyReport.pdf" target="_blank" class="repo-link" onclick="event.stopPropagation();">Report PDF &rarr;</a>
-            <a href="AirHockeyPID.py" target="_blank" class="repo-link" onclick="event.stopPropagation();">PID Source Code &rarr;</a>
-            <a href="AirHockeyHSV.py" target="_blank" class="repo-link" onclick="event.stopPropagation();">HSV Tuning Code &rarr;</a>
+            <a href="https://github.com/SpencerKelly21/SpencerKellyPortfolio/blob/main/AirHockeyPID.py" target="_blank" class="repo-link" onclick="event.stopPropagation();">PID Source Code &rarr;</a>
+            <a href="https://github.com/SpencerKelly21/SpencerKellyPortfolio/blob/main/AirHockeyHSV.py" target="_blank" class="repo-link" onclick="event.stopPropagation();">HSV Tuning Code &rarr;</a>
           </div>
         </div>
       </div>
@@ -374,6 +375,12 @@
   </section>
 
 </div>
+
+<script>
+  document.querySelectorAll('.proj-row .detail').forEach(function(d){
+    d.addEventListener('click', function(e){ e.stopPropagation(); });
+  });
+</script>
 
 </body>
 </html>
