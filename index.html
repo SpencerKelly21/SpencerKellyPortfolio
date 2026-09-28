@@ -199,6 +199,30 @@
   .skill-cols h4{font-size:1.05rem; color:var(--graphite); font-weight:600; margin-bottom:12px;}
   .skill-cols ul{list-style:none; margin:0; padding:0; font-family:'IBM Plex Mono', monospace; font-size:1.1rem; display:flex; flex-wrap:wrap; gap:8px;}
   .skill-cols li{border:1px solid var(--line); padding:5px 10px; background:var(--card);}
+
+  /* Media captions */
+  .media-caption{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.78rem;
+    color:var(--graphite);
+    margin-top:6px;
+  }
+
+  /* Lightbox */
+  .lightbox-overlay{
+    display:none;
+    position:fixed; inset:0;
+    background:rgba(0,0,0,0.85);
+    z-index:1000;
+    align-items:center;
+    justify-content:center;
+    flex-direction:column;
+    padding:24px;
+    cursor:zoom-out;
+  }
+  .lightbox-overlay.open{display:flex;}
+  .lightbox-overlay img{max-width:92vw; max-height:82vh; object-fit:contain; border-radius:4px;}
+  .lightbox-overlay .lightbox-caption{color:#fff; font-family:'IBM Plex Mono', monospace; font-size:0.9rem; margin-top:14px; text-align:center;}
 </style>
 </head>
 <body>
@@ -270,6 +294,7 @@
               <!-- SECONDARY DEMO VIDEO, FULL WIDTH -->
               <div class="media-slot" style="margin-top:14px;">
                 <video src="Human_PID_1.mp4#t=0.1" controls playsinline preload="metadata"></video>
+                <div class="media-caption">Human vs. machine reaction test</div>
               </div>
             </div>
             <div>
@@ -285,10 +310,12 @@
               <!-- DIAGRAMS, UNDER THE LINK ROW -->
               <div style="margin-top:14px; display:flex; flex-direction:column; gap:14px;">
                 <div class="media-slot">
-                  <img src="EE_Hockey_Circuit.jpg" alt="Air Hockey EE Circuit Diagram">
+                  <img src="EE_Hockey_Circuit.jpg" alt="Air Hockey EE Circuit Diagram" style="cursor:zoom-in;" onclick="event.stopPropagation(); openLightbox('EE_Hockey_Circuit.jpg','Electrical Circuit Diagram');">
+                  <div class="media-caption">Electrical Circuit Diagram — click to expand</div>
                 </div>
                 <div class="media-slot">
-                  <img src="PID_Diagram.jpg" alt="PID Control System Diagram">
+                  <img src="PID_Diagram.jpg" alt="PID Control System Diagram" style="cursor:zoom-in;" onclick="event.stopPropagation(); openLightbox('PID_Diagram.jpg','PID Loop Diagram');">
+                  <div class="media-caption">PID Loop Diagram — click to expand</div>
                 </div>
               </div>
             </div>
@@ -461,10 +488,25 @@
 
 </div>
 
+<div id="lightbox" class="lightbox-overlay" onclick="closeLightbox()">
+  <img id="lightbox-img" src="" alt="">
+  <div id="lightbox-caption" class="lightbox-caption"></div>
+</div>
+
 <script>
   document.querySelectorAll('.proj-row .detail').forEach(function(d){
     d.addEventListener('click', function(e){ e.stopPropagation(); });
   });
+
+  function openLightbox(src, caption){
+    document.getElementById('lightbox-img').src = src;
+    document.getElementById('lightbox-caption').textContent = caption;
+    document.getElementById('lightbox').classList.add('open');
+  }
+  function closeLightbox(){
+    document.getElementById('lightbox').classList.remove('open');
+    document.getElementById('lightbox-img').src = '';
+  }
 </script>
 
 </body>
