@@ -246,7 +246,7 @@
     <div class="sheet-tag">02</div>
     <h2>Projects</h2>
 
-    <!-- Project 2 -->
+<!-- Project 2 -->
     <div class="proj-row" onclick="this.classList.toggle('open')">
       <div class="row-head">
         <div>
@@ -259,11 +259,20 @@
       <div class="detail">
         <div class="detail-inner">
           <div class="media-grid">
-            <video src="PID_Tracking.mp4#t=0.1" controls playsinline preload="metadata"></video>
+            <div class="media-slot">
+              <video src="PID_Tracking.mp4#t=0.1" controls playsinline preload="metadata"></video>
+            </div>
           </div>
           <div class="detail-body">
             <div class="narrative">
               <p>Built a 2-DoF gantry air-hockey defender with a Raspberry Pi 4B: an HSV vision pipeline with a custom calibration tool for real-time puck tracking, feeding a decentralized task-space PID controller with EMA filtering, integral windup clamping, and threshold logic driving Dynamixel servos. See GitHub links to the code used and the final report.</p>
+              
+              <!-- MEDIA UNDER PARAGRAPH -->
+              <div class="media-grid" style="margin-top:14px;">
+                <div class="media-slot">
+                  <video src="Human_PID_1.mp4#t=0.1" controls playsinline preload="metadata"></video>
+                </div>
+              </div>
             </div>
             <div>
               <div class="spec-list">
@@ -280,7 +289,6 @@
         </div>
       </div>
     </div>
-
     <!-- Project 3 -->
     <div class="proj-row" onclick="this.classList.toggle('open')">
       <div class="row-head">
