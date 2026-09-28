@@ -199,22 +199,6 @@
   .skill-cols h4{font-size:1.05rem; color:var(--graphite); font-weight:600; margin-bottom:12px;}
   .skill-cols ul{list-style:none; margin:0; padding:0; font-family:'IBM Plex Mono', monospace; font-size:1.1rem; display:flex; flex-wrap:wrap; gap:8px;}
   .skill-cols li{border:1px solid var(--line); padding:5px 10px; background:var(--card);}
-
-  /* Asymmetric Media Split (1/3 Left, 2/3 Right) */
-  .split-media-grid{
-    display:grid;
-    grid-template-columns:1fr 2fr;
-    gap:14px;
-    align-items:start;
-  }
-  .stacked-media{
-    display:flex;
-    flex-direction:column;
-    gap:14px;
-  }
-  @media (max-width:680px){
-    .split-media-grid{grid-template-columns:1fr;}
-  }
 </style>
 </head>
 <body>
@@ -246,7 +230,7 @@
     <h2>About</h2>
     <div class="about-container">
       <div class="about-text">
-        <p>I am a UCLA graduate with an M.S. in Mechanical Engineering ('26) focusing on robotics and mechatronics, alongside a B.S. in Bioengineering ('25) centered on orthopedics, bionics, medical devices, and electrical design principles. My background also includes tissue engineering, rheology, and bioprinting research, including designing a small-scale bioreactor in collaboration with the UCLA Medical School.</p>
+        <p>I am a UCLA graduate with an M.S. in Mechanical Engineering ('26) focusing on robotics and mechatronics, alongside a B.S. in Bioengineering ('25) centered on orthopedics, bionics, and medical device design. My background spans tissue engineering, rheology, and bioprinting research, including designing a small-scale bioreactor in collaboration with the UCLA Medical School.</p>
         <p>I also served as a student liaison during my time as an undergraduate and graduate student at UCLA, working directly with my department and ABET to gather and synthesize feedback on the curriculum. 16 pages and 50+ signatures later, I presented my proposals to internal and external committees, with approved changes integrating in Fall 2026.</p>
         <p>Outside of engineering and academics, I'm passionate about hiking, cooking, climbing, and learning new languages! Feel free to reach out at spencerkelly25@g.ucla.edu if you ever want to connect.</p>
       </div>
@@ -283,19 +267,9 @@
             <div class="narrative">
               <p>Built a 2-DoF XY gantry air-hockey defender with a Raspberry Pi 4B: an HSV vision pipeline with a custom calibration tool for real-time puck tracking and prediction, feeding a decentralized task-space PID controller with signal filtering, windup clamping, and behavioral logic checks driving Dynamixel servos. See GitHub links to the code used and the final report.</p>
 
-              <!-- MEDIA UNDER PARAGRAPH -->
-              <div class="split-media-grid" style="margin-top:14px;">
-                <div class="media-slot">
-                  <video src="Human_PID_1.mp4#t=0.1" controls playsinline preload="metadata"></video>
-                </div>
-                <div class="stacked-media">
-                  <div class="media-slot">
-                    <img src="EE_Hockey_Circuit.jpg" alt="Air Hockey EE Circuit Diagram">
-                  </div>
-                  <div class="media-slot">
-                    <img src="PID_Diagram.jpg" alt="PID Control System Diagram">
-                  </div>
-                </div>
+              <!-- SECONDARY DEMO VIDEO, FULL WIDTH -->
+              <div class="media-slot" style="margin-top:14px;">
+                <video src="Human_PID_1.mp4#t=0.1" controls playsinline preload="metadata"></video>
               </div>
             </div>
             <div>
@@ -307,6 +281,15 @@
                 <a href="AirHockeyReport.pdf" target="_blank" class="repo-link" onclick="event.stopPropagation();">Report PDF &rarr;</a>
                 <a href="https://github.com/SpencerKelly21/SpencerKellyPortfolio/blob/main/AirHockeyPID.py" target="_blank" class="repo-link" onclick="event.stopPropagation();">PID Code &rarr;</a>
                 <a href="https://github.com/SpencerKelly21/SpencerKellyPortfolio/blob/main/AirHockeyHSV.py" target="_blank" class="repo-link" onclick="event.stopPropagation();">HSV Code &rarr;</a>
+              </div>
+              <!-- DIAGRAMS, UNDER THE LINK ROW -->
+              <div style="margin-top:14px; display:flex; flex-direction:column; gap:14px;">
+                <div class="media-slot">
+                  <img src="EE_Hockey_Circuit.jpg" alt="Air Hockey EE Circuit Diagram">
+                </div>
+                <div class="media-slot">
+                  <img src="PID_Diagram.jpg" alt="PID Control System Diagram">
+                </div>
               </div>
             </div>
           </div>
