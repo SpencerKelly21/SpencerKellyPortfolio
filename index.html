@@ -4,9 +4,27 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Spencer D. Kelly</title>
+<meta name="description" content="Portfolio of Spencer D. Kelly: M.S. Mechanical Engineering (Robotics) and B.S. Bioengineering, UCLA. Robotics, mechatronics, motion control, and medical device projects.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Spencer D. Kelly | Biomedical &amp; Robotics Engineer">
+<meta property="og:description" content="Robotics, mechatronics, motion control, and medical device projects with videos, CAD, code, and reports.">
+<meta name="theme-color" content="#F6F4EF">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%232E5C7A'/%3E%3Ctext x='32' y='42' font-family='sans-serif' font-size='28' font-weight='700' text-anchor='middle' fill='%23F6F4EF'%3ESK%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<!-- Apply saved/system theme before first paint to avoid a flash of the wrong theme -->
+<script>
+  (function(){
+    try {
+      var t = localStorage.getItem('theme');
+      if (!t && window.matchMedia('(prefers-color-scheme: dark)').matches) t = 'dark';
+      if (t) document.documentElement.setAttribute('data-theme', t);
+    } catch (e) {}
+  })();
+</script>
+
 <style>
   :root{
     --paper:#F6F4EF; --ink:#1B1E20; --graphite:#5B5F63;
@@ -31,11 +49,11 @@
     --blue:#2E5C7A; --orange:#C1521F; --line:#D8D3C6; --card:#FFFFFF;
   }
 
-  /* Fixed Top-Left Theme Toggle Button */
+  /* Fixed Top-Left Theme Toggle Button (offset by safe-area insets on notched phones) */
   .theme-toggle {
     position: fixed;
-    top: 16px;
-    left: 16px;
+    top: calc(16px + env(safe-area-inset-top, 0px));
+    left: calc(16px + env(safe-area-inset-left, 0px));
     z-index: 999;
     background: var(--card);
     color: var(--ink);
@@ -51,6 +69,9 @@
     border-color: var(--blue);
     color: var(--blue);
   }
+
+  /* Visible keyboard focus */
+  :focus-visible{outline:2px solid var(--blue); outline-offset:3px;}
 
   html{scroll-padding-top:env(safe-area-inset-top,0px);}
   *{box-sizing:border-box;}
@@ -75,9 +96,15 @@
   header .role{color:var(--graphite); font-size:1.3rem; margin-top:4px;}
   header .role + .role{margin-top:2px;}
 
+  /* Extra top space on small screens so the fixed toggle never overlaps the name */
+  @media (max-width:720px){
+    header{padding-top:72px;}
+  }
+
   /* Top Contact Links */
   .header-links{
     display:flex;
+    flex-wrap:wrap;
     justify-content:center;
     gap:20px;
     margin-top:22px;
@@ -112,7 +139,7 @@
     gap:56px;
     align-items:center;
   }
-  .about-text p{color:var(--ink); font-size:1.10rem; margin:0.5;}
+  .about-text p{color:var(--ink); font-size:1.10rem; margin:0;}
   .about-text p + p{margin-top:14px;}
 
   .about-media img{
@@ -121,7 +148,7 @@
     height:auto;
     display:block;
     border-radius:4px;
-    transform:scaleY(-1); /* Flips image vertically */
+    transform:scaleY(-1); /* Flips image vertically (intentional) */
   }
 
   @media (max-width:768px){
@@ -132,7 +159,7 @@
 
   /* Projects index */
   .proj-row{border:1px solid var(--line); border-top:none; padding:19px 22px; cursor:pointer; background:var(--card);}
-  .proj-row:first-of-type{border-top:1px solid var(--line);}
+  h2 + .proj-row{border-top:1px solid var(--line);} /* first project gets its top border */
   .proj-row .row-head{display:flex; justify-content:space-between; gap:16px; align-items:baseline;}
   .proj-row h3{font-size:1.26rem;}
   .proj-row .sub{color:var(--graphite); font-size:1.1rem; margin-top:4px;}
@@ -143,14 +170,16 @@
   .proj-row.open .expand-hint .hint-expand{display:none;}
   .proj-row.open .expand-hint .hint-collapse{display:inline;}
 
-  /* Project Detail Media-Hero Layout */
-  .detail{max-height:0; overflow:hidden; transition:max-height .35s ease;}
-  .proj-row.open .detail{max-height:2400px; margin-top:14px;}
+  /* Project Detail Media-Hero Layout
+     - closed content is visibility:hidden so links/videos can't be tabbed to while collapsed
+     - max-height is generous so tall stacked mobile layouts never get clipped */
+  .detail{max-height:0; overflow:hidden; visibility:hidden; transition:max-height .35s ease, visibility 0s linear .35s;}
+  .proj-row.open .detail{max-height:8000px; margin-top:14px; visibility:visible; transition:max-height .35s ease, visibility 0s;}
   .detail-inner{border-top:1px dashed var(--line); padding-top:18px; display:flex; flex-direction:column; gap:20px;}
 
   .media-grid{
     display:grid;
-    grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns:repeat(auto-fit, minmax(min(280px, 100%), 1fr));
     gap:14px;
   }
   .media-slot{
@@ -208,7 +237,7 @@
 
   /* Experience */
   .exp-row{display:grid; grid-template-columns:260px 1fr; gap:24px; padding:14px 0; border-top:1px solid var(--line);}
-  .exp-row:first-child{border-top:none;}
+  h2 + .exp-row{border-top:none;} /* first row sits directly under the heading */
   .exp-row .when{font-family:'IBM Plex Mono', monospace; font-size:0.94rem; color:var(--graphite); white-space:nowrap;}
   .exp-row .what{font-size:1.2rem;}
   .exp-row .what b{font-weight:600;}
@@ -249,6 +278,10 @@
   .lightbox-overlay.open{display:flex;}
   .lightbox-overlay img{max-width:92vw; max-height:82vh; object-fit:contain; border-radius:4px;}
   .lightbox-overlay .lightbox-caption{color:#fff; font-family:'IBM Plex Mono', monospace; font-size:0.9rem; margin-top:14px; text-align:center;}
+
+  @media (prefers-reduced-motion: reduce){
+    .detail, .proj-row.open .detail, .theme-toggle, .repo-link{transition:none;}
+  }
 </style>
 </head>
 <body>
@@ -264,7 +297,7 @@
         <div class="role">M.S. Mechanical Engineering</div>
         <div class="role">B.S. Bioengineering</div>
         <div class="header-links">
-          <a href="https://www.linkedin.com/in/Mech1" target="_blank">LinkedIn</a>
+          <a href="https://www.linkedin.com/in/Mech1" target="_blank" rel="noopener noreferrer">LinkedIn</a>
           <a href="Spencer_Kelly_resume.pdf" download="Spencer_Kelly_resume.pdf">Download Resume</a>
           <a href="mailto:spencerkelly25@g.ucla.edu">Email</a>
         </div>
@@ -288,7 +321,7 @@
         <p>Outside of engineering and academics, I'm passionate about hiking, cooking, climbing, and learning new languages! Feel free to reach out at spencerkelly25@g.ucla.edu to connect.</p>
       </div>
       <div class="about-media">
-        <img src="Hand_Art.jpg" alt="Anatomical Hand Illustration">
+        <img src="Hand_Art.jpg" alt="Anatomical hand illustration">
       </div>
     </div>
   </section>
@@ -300,7 +333,7 @@
     <h2>Projects</h2>
 
     <!-- Project 2 -->
-    <div class="proj-row" onclick="this.classList.toggle('open')">
+    <div class="proj-row">
       <div class="row-head">
         <div>
           <h3>Autonomous PID Air Hockey Defender</h3>
@@ -313,7 +346,7 @@
         <div class="detail-inner">
           <div class="media-grid">
             <div class="media-slot">
-              <video src="PID_Tracking.mp4#t=0.1" controls playsinline preload="metadata"></video>
+              <video data-src="PID_Tracking.mp4#t=0.1" controls playsinline preload="metadata"></video>
             </div>
           </div>
           <div class="detail-body">
@@ -322,7 +355,7 @@
 
               <!-- SECONDARY DEMO VIDEO, FULL WIDTH -->
               <div class="media-slot" style="margin-top:24px;">
-                <video src="Human_PID_1.mp4#t=0.1" controls playsinline preload="metadata"></video>
+                <video data-src="Human_PID_1.mp4#t=0.1" controls playsinline preload="metadata"></video>
                 <div class="media-caption">Human vs. machine reaction test</div>
               </div>
             </div>
@@ -332,18 +365,18 @@
                 <div><span>Settling time</span><span>~0.85 s</span></div>
               </div>
               <div style="margin-top:14px;">
-                <a href="AirHockeyReport.pdf" target="_blank" class="repo-link" onclick="event.stopPropagation();">Report PDF &rarr;</a>
-                <a href="https://github.com/SpencerKelly21/SpencerKellyPortfolio/blob/main/AirHockeyPID.py" target="_blank" class="repo-link" onclick="event.stopPropagation();">PID Code &rarr;</a>
-                <a href="https://github.com/SpencerKelly21/SpencerKellyPortfolio/blob/main/AirHockeyHSV.py" target="_blank" class="repo-link" onclick="event.stopPropagation();">HSV Code &rarr;</a>
+                <a href="AirHockeyReport.pdf" target="_blank" rel="noopener noreferrer" class="repo-link">Report PDF &rarr;</a>
+                <a href="https://github.com/SpencerKelly21/SpencerKellyPortfolio/blob/main/AirHockeyPID.py" target="_blank" rel="noopener noreferrer" class="repo-link">PID Code &rarr;</a>
+                <a href="https://github.com/SpencerKelly21/SpencerKellyPortfolio/blob/main/AirHockeyHSV.py" target="_blank" rel="noopener noreferrer" class="repo-link">HSV Code &rarr;</a>
               </div>
               <!-- DIAGRAMS, UNDER THE LINK ROW -->
               <div style="margin-top:24px; display:flex; flex-direction:column; gap:24px;">
                 <div class="media-slot">
-                  <img src="EE_Hockey_Circuit.jpg" alt="Air Hockey EE Circuit Diagram" style="cursor:zoom-in;" onclick="event.stopPropagation(); openLightbox('EE_Hockey_Circuit.jpg','Electrical Circuit Diagram');">
+                  <img src="EE_Hockey_Circuit.jpg" alt="Air Hockey EE Circuit Diagram" loading="lazy" decoding="async" style="cursor:zoom-in;" data-lightbox="Electrical Circuit Diagram" tabindex="0" role="button">
                   <div class="media-caption">Circuit Diagram — click to expand</div>
                 </div>
                 <div class="media-slot">
-                  <img src="PID_Diagram.jpg" alt="PID Control System Diagram" style="cursor:zoom-in;" onclick="event.stopPropagation(); openLightbox('PID_Diagram.jpg','PID Loop Diagram');">
+                  <img src="PID_Diagram.jpg" alt="PID Control System Diagram" loading="lazy" decoding="async" style="cursor:zoom-in;" data-lightbox="PID Loop Diagram" tabindex="0" role="button">
                   <div class="media-caption">PID Loop Diagram — click to expand</div>
                 </div>
               </div>
@@ -354,7 +387,7 @@
     </div>
 
     <!-- Project 3 -->
-    <div class="proj-row" onclick="this.classList.toggle('open')">
+    <div class="proj-row">
       <div class="row-head">
         <div>
           <h3>Signal Processed ECG/EMG Design</h3>
@@ -368,7 +401,7 @@
           <!-- ECG Video in main top media slot -->
           <div class="media-grid">
             <div class="media-slot">
-              <video src="ECG_Video.MOV#t=0.1" controls playsinline preload="metadata"></video>
+              <video data-src="ECG_Video.MOV#t=0.1" controls playsinline preload="metadata"></video>
               <div class="media-caption">Electrocardiogram data with visible PQRST complex</div>
             </div>
           </div>
@@ -376,7 +409,7 @@
             <!-- Left Side: EMG Video -->
             <div>
               <div class="media-slot">
-                <video src="EMG_Video.mp4#t=0.1" controls playsinline preload="metadata"></video>
+                <video data-src="EMG_Video.mp4#t=0.1" controls playsinline preload="metadata"></video>
                 <div class="media-caption">Raw EMG data</div>
               </div>
             </div>
@@ -390,7 +423,7 @@
                 <div><span>Filter Cutoff</span><span>40 Hz Low Pass</span></div>
               </div>
               <div style="margin-top:14px;">
-                <a href="https://github.com/SpencerKelly21/SpencerKellyPortfolio/blob/main/Filter_Data.pde" target="_blank" class="repo-link" onclick="event.stopPropagation();">Signal Processing Code &rarr;</a>
+                <a href="https://github.com/SpencerKelly21/SpencerKellyPortfolio/blob/main/Filter_Data.pde" target="_blank" rel="noopener noreferrer" class="repo-link">Signal Processing Code &rarr;</a>
               </div>
             </div>
           </div>
@@ -399,7 +432,7 @@
     </div>
 
     <!-- Project 4 -->
-    <div class="proj-row" onclick="this.classList.toggle('open')">
+    <div class="proj-row">
       <div class="row-head">
         <div>
           <h3>5-DoF Cake Icing Robot</h3>
@@ -407,26 +440,26 @@
         </div>
         <div class="expand-hint"><span class="hint-expand">tap to expand</span><span class="hint-collapse">tap to collapse</span></div>
       </div>
-      <div class="tags"><span class="tag">RP2040</span><span class="tag">RS-485</span><span class="tag">DH Params</span><span class="tag">Dynamixel Servos</span></div>
+      <div class="tags"><span class="tag">ESP32</span><span class="tag">RS-485</span><span class="tag">DH Params</span><span class="tag">Dynamixel Servos</span></div>
       <div class="detail">
         <div class="detail-inner">
           <div class="media-grid">
             <div class="media-slot">
-              <img src="Icing_Assembly.jpg" alt="Cake Icing Robot CAD Assembly" style="cursor:zoom-in;" onclick="event.stopPropagation(); openLightbox('Icing_Assembly.jpg','CAD Assembly');">
+              <img src="Icing_Assembly.jpg" alt="Cake Icing Robot CAD Assembly" loading="lazy" decoding="async" style="cursor:zoom-in;" data-lightbox="CAD Assembly" tabindex="0" role="button">
               <div class="media-caption">CAD Assembly — click to expand</div>
             </div>
             <div class="media-slot">
-              <img src="Icing_Real.jpg" alt="Cake Icing Robot Physical Build" style="cursor:zoom-in;" onclick="event.stopPropagation(); openLightbox('Icing_Real.jpg','Physical Build');">
+              <img src="Icing_Real.jpg" alt="Cake Icing Robot Physical Build" loading="lazy" decoding="async" style="cursor:zoom-in;" data-lightbox="Physical Build" tabindex="0" role="button">
               <div class="media-caption">Physical Build — click to expand</div>
             </div>
           </div>
           <div class="detail-body">
             <div class="narrative">
-              <p>A 5-DoF manipulator (3 rotational, 2 linear joints) nicknamed CHRISTMAS, designed to use inverse and forward kinematics to apply icing to cakes of various sizes, with customizable messages included! Implemented electronics and task programming, driving Dynamixel MX-28AR servos via an RP2040 PicoW, with custom packet-level functions for real-time trajectory behavior using position and velocity control.</p>
+              <p>A 5-DoF manipulator (3 rotational, 2 linear joints) nicknamed CHRISTMAS, designed to use inverse and forward kinematics to apply icing to cakes of various sizes, with customizable messages included! Implemented electronics and task programming, driving Dynamixel MX-28AR servos via an ESP32, with custom packet-level functions for real-time trajectory behavior using position and velocity control.</p>
             </div>
             <div>
               <div style="margin-top:14px;">
-                <a href="Cake%20Icing%20Robot%20Report.pdf" target="_blank" class="repo-link" onclick="event.stopPropagation();">Report PDF &rarr;</a>
+                <a href="Cake%20Icing%20Robot%20Report.pdf" target="_blank" rel="noopener noreferrer" class="repo-link">Report PDF &rarr;</a>
               </div>
             </div>
           </div>
@@ -435,7 +468,7 @@
     </div>
 
     <!-- Project 5 -->
-    <div class="proj-row" onclick="this.classList.toggle('open')">
+    <div class="proj-row">
       <div class="row-head">
         <div>
           <h3>Vision Sensing Hand Mimic</h3>
@@ -447,10 +480,11 @@
       <div class="detail">
         <div class="detail-inner">
           <div class="media-grid">
-              <div class="media-slot">
-                <video src="Vision_Hand.mp4#t=0.1" controls playsinline preload="metadata"></video>
-                <div class="media-caption">OpenCV finger detection program communicating to microcontroller for servo actuation/div>
-              </div>
+            <div class="media-slot">
+              <video data-src="Vision_Hand.mp4#t=0.1" controls playsinline preload="metadata"></video>
+              <div class="media-caption">OpenCV finger detection program communicating to microcontroller for servo actuation</div>
+            </div>
+          </div>
           <div class="detail-body">
             <div class="narrative">
               <p>Developed a simple fingertip recognition program with Processing, RP2040 PicoW microcontroller, and OpenCV (Java-based). Built and tuned a mechanical hand with 4 servo-driven fingers to mimic detected movements, incorporating digital debouncing to eliminate false detections.</p>
@@ -461,7 +495,7 @@
                 <div><span>Power Supply</span><span>5V / Buck Converter</span></div>
               </div>
               <div style="margin-top:14px;">
-                <a href="https://github.com/SpencerKelly21/SpencerKellyPortfolio/blob/main/Mimic_Hand_Tracking.pde" target="_blank" class="repo-link" onclick="event.stopPropagation();">View Source Code &rarr;</a>
+                <a href="https://github.com/SpencerKelly21/SpencerKellyPortfolio/blob/main/Mimic_Hand_Tracking.pde" target="_blank" rel="noopener noreferrer" class="repo-link">View Source Code &rarr;</a>
               </div>
             </div>
           </div>
@@ -470,7 +504,7 @@
     </div>
 
     <!-- Project 6 -->
-    <div class="proj-row" onclick="this.classList.toggle('open')">
+    <div class="proj-row">
       <div class="row-head">
         <div>
           <h3>Small-Scale Bioreactor</h3>
@@ -490,7 +524,7 @@
             </div>
             <div>
               <div style="margin-top:14px;">
-                <a href="https://github.com/spencerkelly21/SpencerKellyPortfolio" target="_blank" class="repo-link" onclick="event.stopPropagation();">View CAD / CAD Models &rarr;</a>
+                <a href="https://github.com/spencerkelly21/SpencerKellyPortfolio" target="_blank" rel="noopener noreferrer" class="repo-link">View CAD / CAD Models &rarr;</a>
               </div>
             </div>
           </div>
@@ -536,49 +570,100 @@
 
 </div>
 
-<div id="lightbox" class="lightbox-overlay" onclick="closeLightbox()">
-  <img id="lightbox-img" src="" alt="">
+<div id="lightbox" class="lightbox-overlay" role="dialog" aria-modal="true" aria-label="Enlarged image">
+  <img id="lightbox-img" alt="">
   <div id="lightbox-caption" class="lightbox-caption"></div>
 </div>
 
 <script>
-  // Theme Toggle Logic
+  // ---------- Theme toggle (same behavior as before) ----------
   const themeToggleBtn = document.getElementById('theme-toggle');
+  const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
-  function updateThemeUI(theme) {
+  function safeGet(key){ try { return localStorage.getItem(key); } catch (e) { return null; } }
+  function safeSet(key, val){ try { localStorage.setItem(key, val); } catch (e) {} }
+
+  function updateThemeUI(theme, persist) {
     document.documentElement.setAttribute('data-theme', theme);
-    localStorage.setItem('theme', theme);
+    if (persist) safeSet('theme', theme);
     themeToggleBtn.textContent = theme === 'dark' ? 'Dark Mode' : 'Light Mode';
   }
 
   // Detect preferred scheme from localStorage or system preference
-  const savedTheme = localStorage.getItem('theme');
-  const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-  const initialTheme = savedTheme || (systemPrefersDark ? 'dark' : 'light');
-
-  updateThemeUI(initialTheme);
+  updateThemeUI(safeGet('theme') || (systemPrefersDark ? 'dark' : 'light'), false);
 
   themeToggleBtn.addEventListener('click', () => {
     const currentTheme = document.documentElement.getAttribute('data-theme') || (systemPrefersDark ? 'dark' : 'light');
-    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-    updateThemeUI(newTheme);
+    updateThemeUI(currentTheme === 'dark' ? 'light' : 'dark', true);
   });
 
-  // Project Accordion Logic
+  // ---------- Project accordion ----------
+  function setRowOpen(row, open){
+    row.classList.toggle('open', open);
+    const head = row.querySelector('.row-head');
+    if (head) head.setAttribute('aria-expanded', open ? 'true' : 'false');
+
+    if (open) {
+      // Load videos only when a card is first opened (keeps initial page load light)
+      row.querySelectorAll('video[data-src]').forEach(function(v){
+        v.src = v.getAttribute('data-src');
+        v.removeAttribute('data-src');
+      });
+    } else {
+      // Stop any playing video when the card collapses
+      row.querySelectorAll('video').forEach(function(v){ v.pause(); });
+    }
+  }
+
+  document.querySelectorAll('.proj-row').forEach(function(row){
+    const head = row.querySelector('.row-head');
+    head.setAttribute('role', 'button');
+    head.setAttribute('tabindex', '0');
+    head.setAttribute('aria-expanded', 'false');
+
+    row.addEventListener('click', function(){ setRowOpen(row, !row.classList.contains('open')); });
+    head.addEventListener('keydown', function(e){
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        setRowOpen(row, !row.classList.contains('open'));
+      }
+    });
+  });
+
+  // Clicks inside the expanded detail area (video controls, links, images) never collapse the card
   document.querySelectorAll('.proj-row .detail').forEach(function(d){
     d.addEventListener('click', function(e){ e.stopPropagation(); });
   });
 
-  // Lightbox Functions
+  // ---------- Lightbox ----------
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+  let lastFocused = null;
+
   function openLightbox(src, caption){
-    document.getElementById('lightbox-img').src = src;
+    lastFocused = document.activeElement;
+    lightboxImg.src = src;
+    lightboxImg.alt = caption;
     document.getElementById('lightbox-caption').textContent = caption;
-    document.getElementById('lightbox').classList.add('open');
+    lightbox.classList.add('open');
   }
   function closeLightbox(){
-    document.getElementById('lightbox').classList.remove('open');
-    document.getElementById('lightbox-img').src = '';
+    lightbox.classList.remove('open');
+    lightboxImg.removeAttribute('src');
+    if (lastFocused && lastFocused.focus) lastFocused.focus();
   }
+
+  document.querySelectorAll('img[data-lightbox]').forEach(function(img){
+    const open = function(){ openLightbox(img.getAttribute('src'), img.getAttribute('data-lightbox')); };
+    img.addEventListener('click', open);
+    img.addEventListener('keydown', function(e){
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(); }
+    });
+  });
+  lightbox.addEventListener('click', closeLightbox);
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape' && lightbox.classList.contains('open')) closeLightbox();
+  });
 </script>
 
 </body>
