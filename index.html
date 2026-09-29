@@ -26,6 +26,32 @@
     --paper:#17191B; --ink:#EDEBE6; --graphite:#9A9C9E;
     --blue:#6FA3C4; --orange:#E07A45; --line:#33373A; --card:#1F2224;
   }
+  :root[data-theme="light"]{
+    --paper:#F6F4EF; --ink:#1B1E20; --graphite:#5B5F63;
+    --blue:#2E5C7A; --orange:#C1521F; --line:#D8D3C6; --card:#FFFFFF;
+  }
+
+  /* Fixed Top-Left Theme Toggle Button */
+  .theme-toggle {
+    position: fixed;
+    top: 16px;
+    left: 16px;
+    z-index: 999;
+    background: var(--card);
+    color: var(--ink);
+    border: 1px solid var(--line);
+    padding: 6px 12px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.85rem;
+    cursor: pointer;
+    border-radius: 2px;
+    transition: all 0.2s ease;
+  }
+  .theme-toggle:hover {
+    border-color: var(--blue);
+    color: var(--blue);
+  }
+
   html{scroll-padding-top:env(safe-area-inset-top,0px);}
   *{box-sizing:border-box;}
   body{
@@ -226,6 +252,9 @@
 </style>
 </head>
 <body>
+
+<!-- Theme Mode Toggle Button -->
+<button id="theme-toggle" class="theme-toggle" aria-label="Toggle Theme">Dark Mode</button>
 
 <div class="wrap">
   <header>
@@ -511,10 +540,34 @@
 </div>
 
 <script>
+  // Theme Toggle Logic
+  const themeToggleBtn = document.getElementById('theme-toggle');
+
+  function updateThemeUI(theme) {
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
+    themeToggleBtn.textContent = theme === 'dark' ? 'Dark Mode' : 'Light Mode';
+  }
+
+  // Detect preferred scheme from localStorage or system preference
+  const savedTheme = localStorage.getItem('theme');
+  const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const initialTheme = savedTheme || (systemPrefersDark ? 'dark' : 'light');
+
+  updateThemeUI(initialTheme);
+
+  themeToggleBtn.addEventListener('click', () => {
+    const currentTheme = document.documentElement.getAttribute('data-theme') || (systemPrefersDark ? 'dark' : 'light');
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    updateThemeUI(newTheme);
+  });
+
+  // Project Accordion Logic
   document.querySelectorAll('.proj-row .detail').forEach(function(d){
     d.addEventListener('click', function(e){ e.stopPropagation(); });
   });
 
+  // Lightbox Functions
   function openLightbox(src, caption){
     document.getElementById('lightbox-img').src = src;
     document.getElementById('lightbox-caption').textContent = caption;
