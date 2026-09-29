@@ -336,12 +336,20 @@
       <div class="tags"><span class="tag">ESP32-S3</span><span class="tag">INA826</span><span class="tag">FFT</span><span class="tag">Processing (Java)</span><span class="tag">Signal Processing</span></div>
       <div class="detail">
         <div class="detail-inner">
+          <!-- ECG Video in main top media slot -->
+          <div class="media-grid">
+            <div class="media-slot">
+              <video src="ECG_Video.MOV#t=0.1" controls playsinline preload="metadata"></video>
+            </div>
+          </div>
           <div class="detail-body">
+            <!-- Left Side: EMG Video -->
             <div>
               <div class="media-slot">
-                <video src="ECG_Video.MOV#t=0.1" controls playsinline preload="metadata"></video>
+                <video src="EMG_Video.mp4#t=0.1" controls playsinline preload="metadata"></video>
               </div>
             </div>
+            <!-- Right Side: Narrative + Specs + Code Button -->
             <div>
               <div class="narrative" style="margin-bottom:18px;">
                 <p>Designed and validated a functional ECG/EMG from first principles using an INA826 instrumentation amp, RC network, and ESP32-S3. Applied FFT and a brick-wall low-pass filter to isolate cardiac signals, visualized in a custom 3-pane Processing interface (raw signal, filtered signal, frequency domain). See video(s) for a live demo.</p>
