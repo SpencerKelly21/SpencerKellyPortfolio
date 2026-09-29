@@ -65,9 +65,9 @@
   nav{
     display:flex;
     justify-content:center;
-    gap:24px;
-    padding-top:16px;
-    padding-bottom:14px;
+    gap:30px;
+    padding-top:24px;
+    padding-bottom:10px;
     border-top:1px solid var(--line);
     flex-wrap:wrap;
     font-size:1.35rem;
@@ -83,10 +83,10 @@
   .about-container{
     display:grid;
     grid-template-columns:1fr 280px;
-    gap:36px;
+    gap:56px;
     align-items:center;
   }
-  .about-text p{color:var(--ink); font-size:1.05rem; margin:0;}
+  .about-text p{color:var(--ink); font-size:1.10rem; margin:0.5;}
   .about-text p + p{margin-top:14px;}
 
   .about-media img{
@@ -167,7 +167,7 @@
     margin-top:10px;
     margin-right:8px;
     font-family:'IBM Plex Mono', monospace;
-    font-size:0.94rem;
+    font-size:1.05rem;
     color:var(--blue);
     text-decoration:none;
     border:1px solid var(--blue);
@@ -203,7 +203,7 @@
   /* Media captions */
   .media-caption{
     font-family:'IBM Plex Mono', monospace;
-    font-size:0.78rem;
+    font-size:0.90rem;
     color:var(--graphite);
     margin-top:6px;
   }
@@ -255,8 +255,8 @@
     <div class="about-container">
       <div class="about-text">
         <p>I am a UCLA graduate with an M.S. in Mechanical Engineering ('26) focusing on robotics and mechatronics, alongside a B.S. in Bioengineering ('25) centered on orthopedics, bionics, and medical device design. My background spans tissue engineering, rheology, and bioprinting research, including designing a small-scale bioreactor in collaboration with the UCLA Medical School.</p>
-        <p>I also served as a student liaison during my time as an undergraduate and graduate student at UCLA, working directly with my department and ABET to gather and synthesize feedback on the curriculum. 16 pages and 50+ signatures later, I presented my proposals to internal and external committees, with approved changes integrating in Fall 2026.</p>
-        <p>Outside of engineering and academics, I'm passionate about hiking, cooking, climbing, and learning new languages! Feel free to reach out at spencerkelly25@g.ucla.edu if you ever want to connect.</p>
+        <p>I also served as a student liaison during my time as an undergraduate and graduate student at UCLA, working directly with my department and ABET to gather and synthesize feedback on the curriculum. 16 pages and 50+ peer signatures later, I presented my proposals to internal and external committees, with approved changes integrating in Fall 2026.</p>
+        <p>Outside of engineering and academics, I'm passionate about hiking, cooking, climbing, and learning new languages! Feel free to reach out at spencerkelly25@g.ucla.edu to connect.</p>
       </div>
       <div class="about-media">
         <img src="Hand_Art.jpg" alt="Anatomical Hand Illustration">
@@ -292,7 +292,7 @@
               <p>Built a 2-DoF XY gantry air-hockey defender with a Raspberry Pi 4B: an HSV vision pipeline with a custom calibration tool for real-time puck tracking and prediction, feeding a decentralized task-space PID controller with signal filtering, windup clamping, and behavioral logic checks driving Dynamixel servos. See GitHub links to the code used and the final report.</p>
 
               <!-- SECONDARY DEMO VIDEO, FULL WIDTH -->
-              <div class="media-slot" style="margin-top:14px;">
+              <div class="media-slot" style="margin-top:24px;">
                 <video src="Human_PID_1.mp4#t=0.1" controls playsinline preload="metadata"></video>
                 <div class="media-caption">Human vs. machine reaction test</div>
               </div>
@@ -308,10 +308,10 @@
                 <a href="https://github.com/SpencerKelly21/SpencerKellyPortfolio/blob/main/AirHockeyHSV.py" target="_blank" class="repo-link" onclick="event.stopPropagation();">HSV Code &rarr;</a>
               </div>
               <!-- DIAGRAMS, UNDER THE LINK ROW -->
-              <div style="margin-top:14px; display:flex; flex-direction:column; gap:14px;">
+              <div style="margin-top:24px; display:flex; flex-direction:column; gap:24px;">
                 <div class="media-slot">
                   <img src="EE_Hockey_Circuit.jpg" alt="Air Hockey EE Circuit Diagram" style="cursor:zoom-in;" onclick="event.stopPropagation(); openLightbox('EE_Hockey_Circuit.jpg','Electrical Circuit Diagram');">
-                  <div class="media-caption">Electrical Circuit Diagram — click to expand</div>
+                  <div class="media-caption">Circuit Diagram — click to expand</div>
                 </div>
                 <div class="media-slot">
                   <img src="PID_Diagram.jpg" alt="PID Control System Diagram" style="cursor:zoom-in;" onclick="event.stopPropagation(); openLightbox('PID_Diagram.jpg','PID Loop Diagram');">
@@ -328,7 +328,7 @@
     <div class="proj-row" onclick="this.classList.toggle('open')">
       <div class="row-head">
         <div>
-          <h3>Signal Processed ECG/EMG Acquisition System</h3>
+          <h3>Signal Processed ECG/EMG Design</h3>
           <div class="sub">Individual Project // February 2026 – March 2026</div>
         </div>
         <div class="expand-hint"><span class="hint-expand">tap to expand</span><span class="hint-collapse">tap to collapse</span></div>
@@ -351,7 +351,7 @@
                 <div><span>Filter Cutoff</span><span>40 Hz Low Pass</span></div>
               </div>
               <div style="margin-top:14px;">
-                <a href="https://github.com/spencerkelly21/SpencerKellyPortfolio" target="_blank" class="repo-link" onclick="event.stopPropagation();">View Source Code &rarr;</a>
+                <a href="https://github.com/SpencerKelly21/SpencerKellyPortfolio/blob/main/Filter_Data.pde" target="_blank" class="repo-link" onclick="event.stopPropagation();">Signal Processing Code &rarr;</a>
               </div>
             </div>
           </div>
@@ -368,20 +368,15 @@
         </div>
         <div class="expand-hint"><span class="hint-expand">tap to expand</span><span class="hint-collapse">tap to collapse</span></div>
       </div>
-      <div class="tags"><span class="tag">ESP32</span><span class="tag">RS-485</span><span class="tag">DH Params</span><span class="tag">Dynamixel Servos</span></div>
+      <div class="tags"><span class="tag">RP2040</span><span class="tag">RS-485</span><span class="tag">DH Params</span><span class="tag">Dynamixel Servos</span></div>
       <div class="detail">
         <div class="detail-inner">
           <div class="media-grid">
-            <div class="media-slot">
-              <img src="Icing_Assembly.jpg" alt="STEP Assembly">
-            </div>
-            <div class="media-slot">
-              <img src="Icing_Real.jpg" alt="Real Photo Assembly">
-            </div>
+            <div class="media-slot">Add build photo or motion clip</div>
           </div>
           <div class="detail-body">
             <div class="narrative">
-              <p>A 5-DoF manipulator (3 rotational, 2 linear joints) nicknamed CHRISTMAS, designed to use inverse and forward kinematics to apply icing to cakes of various sizes, with customizable messages included! Implemented electronics and task programming, driving Dynamixel MX-28AR servos via an ESP32, with custom packet-level functions for real-time trajectory behavior using position and velocity control.</p>
+              <p>A 5-DoF manipulator (3 rotational, 2 linear joints) nicknamed CHRISTMAS, designed to use inverse and forward kinematics to apply icing to cakes of various sizes, with customizable messages included! Implemented electronics and task programming, driving Dynamixel MX-28AR servos via an RP2040 PicoW, with custom packet-level functions for real-time trajectory behavior using position and velocity control.</p>
             </div>
             <div>
               <div style="margin-top:14px;">
@@ -418,7 +413,7 @@
                 <div><span>Power Supply</span><span>5V / Buck Converter</span></div>
               </div>
               <div style="margin-top:14px;">
-                <a href="https://github.com/spencerkelly21/SpencerKellyPortfolio" target="_blank" class="repo-link" onclick="event.stopPropagation();">View Source Code &rarr;</a>
+                <a href="https://github.com/SpencerKelly21/SpencerKellyPortfolio/blob/main/Mimic_Hand_Tracking.pde" target="_blank" class="repo-link" onclick="event.stopPropagation();">View Source Code &rarr;</a>
               </div>
             </div>
           </div>
