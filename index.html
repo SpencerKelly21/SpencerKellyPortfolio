@@ -416,7 +416,7 @@
             <!-- Right Side: Narrative + Specs + Code Button -->
             <div>
               <div class="narrative" style="margin-bottom:18px;">
-                <p>Designed and validated a functional ECG/EMG from first principles using an INA826 instrumentation amp, RC network, and ESP32-S3. Applied FFT and a brick-wall low-pass filter to isolate cardiac signals, visualized in a custom 3-pane Processing interface (raw signal, filtered signal, frequency domain). See video(s) for a live demo.</p>
+                <p>Designed and validated a functional ECG/EMG circuit from first principles using an INA826 instrumentation amp, RC network, and ESP32-S3. Applied FFT and a brick-wall low-pass filter to isolate cardiac signals, visualized in a custom 3-pane Processing interface (raw signal, filtered signal, frequency domain). See video(s) for a live demo of each.</p>
               </div>
               <div class="spec-list">
                 <div><span>Sampling Rate</span><span>250 Hz (12-bit)</span></div>
@@ -502,9 +502,7 @@
             <div>
               <div class="narrative" style="margin-bottom:18px;">
                 <p>Developed a simple fingertip recognition program with Processing, RP2040 PicoW microcontroller, and OpenCV (Java-based). Built and tuned a mechanical hand with 4 servo-driven fingers to mimic detected movements, incorporating digital debouncing to eliminate false detections.</p>
-              </div>
-              <div class="spec-list">
-                <div><span>Power Supply</span><span>5V USBC + Converter</span></div>
+                <p>Addressing the electrical constraints of running four servos at once, I created a dedicated power supply using a USB-C input paired with a step-down buck converter. This delivered the necessary 2.0 A peak current to ensure synchronized actuation. </p>
               </div>
               <div style="margin-top:14px;">
                 <a href="https://github.com/SpencerKelly21/SpencerKellyPortfolio/blob/main/Mimic_Hand_Tracking.pde" target="_blank" rel="noopener noreferrer" class="repo-link">Finger Detection Code &rarr;</a>
