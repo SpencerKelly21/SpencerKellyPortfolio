@@ -3,11 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Spencer D. Kelly</title>
+<title>Spencer D. Kelly | Biomedical &amp; Robotics Engineer</title>
 <meta name="description" content="Portfolio of Spencer D. Kelly: M.S. Mechanical Engineering (Robotics) and B.S. Bioengineering, UCLA. Robotics, mechatronics, motion control, and medical device projects.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Spencer D. Kelly | Biomedical &amp; Robotics Engineer">
 <meta property="og:description" content="Robotics, mechatronics, motion control, and medical device projects with videos, CAD, code, and reports.">
+<!-- Add these two once you have your public site URL and a share image (about 1200x630), so link previews show a picture:
+<meta property="og:url" content="https://YOUR-SITE-URL/">
+<meta property="og:image" content="https://YOUR-SITE-URL/share.jpg">
+-->
 <meta name="theme-color" content="#F6F4EF">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%232E5C7A'/%3E%3Ctext x='32' y='42' font-family='sans-serif' font-size='28' font-weight='700' text-anchor='middle' fill='%23F6F4EF'%3ESK%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -172,8 +176,9 @@
 
   /* Project Detail Media-Hero Layout
      - closed content is visibility:hidden so links/videos can't be tabbed to while collapsed
-     - max-height is generous so tall stacked mobile layouts never get clipped */
-  .detail{max-height:0; overflow:hidden; visibility:hidden; transition:max-height .35s ease, visibility 0s linear .35s;}
+     - max-height is generous so tall stacked mobile layouts never get clipped
+     - cursor resets to default inside the open card (only the header area toggles it) */
+  .detail{max-height:0; overflow:hidden; visibility:hidden; cursor:default; transition:max-height .35s ease, visibility 0s linear .35s;}
   .proj-row.open .detail{max-height:8000px; margin-top:14px; visibility:visible; transition:max-height .35s ease, visibility 0s;}
   .detail-inner{border-top:1px dashed var(--line); padding-top:18px; display:flex; flex-direction:column; gap:20px;}
 
@@ -214,7 +219,11 @@
   .spec-list div{display:flex; justify-content:space-between; padding:6px 0; border-bottom:1px solid var(--line); font-size:1.02rem;}
   .spec-list span:first-child{color:var(--graphite);}
   .spec-list span:last-child{font-family:'IBM Plex Mono', monospace;}
+
+  /* Narrative text: no default top margin, so the first line lines up with the image beside it */
   .narrative{font-size:1.1rem; color:var(--ink);}
+  .narrative p{margin:0;}
+  .narrative p + p{margin-top:14px;}
 
   /* Code / Repo Button */
   .repo-link{
@@ -316,10 +325,9 @@
     <h2>About</h2>
     <div class="about-container">
       <div class="about-text">
-<p>I'm a UCLA graduate with an M.S. in Mechanical Engineering ('26), specializing in robotics and mechatronics, and a B.S. in Bioengineering ('25), focused on orthopedics, bionics, and medical device design. I've also completed tissue engineering research, including a small-scale bioreactor I led in collaboration with the UCLA Medical School.</p>
-<p>Alongside my studies, I've worked in surgical equipment manufacturing, CNC machining, and genome sequencing automation. Today I'm focused on robotics and automation, building systems where precise motion, sensing, and control come together.</p>
-        
-        <p>I also served as a student liaison during my time as an undergraduate and graduate student at UCLA, working directly with my department and ABET to gather and synthesize feedback on the curriculum. 16 pages and 50+ peer signatures later, I presented my proposals to internal and external committees, with approved changes integrating in Fall 2026.</p>
+        <p>I'm a UCLA graduate with an M.S. in Mechanical Engineering ('26), specializing in robotics and mechatronics, and a B.S. in Bioengineering ('25), focused on orthopedics, bionics, and medical device design. I've also completed tissue engineering research, including a small-scale bioreactor I led in collaboration with the UCLA Medical School.</p>
+        <p>Alongside my studies, I've worked in surgical equipment manufacturing, CNC machining, and genome sequencing automation. Today I'm focused on robotics and automation, building systems where precise motion, sensing, and control come together.</p>
+        <p>I also served as a student liaison during my time as an undergraduate and graduate student at UCLA, working directly with my department and ABET to gather and synthesize feedback on the curriculum. 16 pages and 50+ peer signatures later, I presented my proposals to internal and external committees, and the approved changes are now rolling out in Fall 2026.</p>
         <p>Outside of engineering and academics, I'm passionate about hiking, cooking, climbing, and learning new languages! Feel free to reach out at spencerkelly25@g.ucla.edu to connect.</p>
       </div>
       <div class="about-media">
@@ -374,12 +382,12 @@
               <!-- DIAGRAMS, UNDER THE LINK ROW -->
               <div style="margin-top:24px; display:flex; flex-direction:column; gap:24px;">
                 <div class="media-slot">
-                  <img src="EE_Hockey_Circuit.jpg" alt="Air Hockey EE Circuit Diagram" loading="lazy" decoding="async" style="cursor:zoom-in;" data-lightbox="Electrical Circuit Diagram" tabindex="0" role="button">
-                  <div class="media-caption">Circuit Diagram — click to expand</div>
+                  <img src="EE_Hockey_Circuit.jpg" alt="Air Hockey EE Circuit Diagram" loading="lazy" decoding="async" style="cursor:zoom-in;" data-lightbox="Circuit Diagram" tabindex="0" role="button">
+                  <div class="media-caption">Circuit Diagram</div>
                 </div>
                 <div class="media-slot">
                   <img src="PID_Diagram.jpg" alt="PID Control System Diagram" loading="lazy" decoding="async" style="cursor:zoom-in;" data-lightbox="PID Loop Diagram" tabindex="0" role="button">
-                  <div class="media-caption">PID Loop Diagram — click to expand</div>
+                  <div class="media-caption">PID Loop Diagram</div>
                 </div>
               </div>
             </div>
@@ -433,7 +441,7 @@
       </div>
     </div>
 
-       <!-- Project 4 -->
+    <!-- Project 4 -->
     <div class="proj-row">
       <div class="row-head">
         <div>
@@ -448,11 +456,11 @@
           <div class="media-grid">
             <div class="media-slot">
               <img src="Icing_Assembly.jpg" alt="Cake Icing Robot CAD Assembly" loading="lazy" decoding="async" style="cursor:zoom-in;" data-lightbox="CAD Assembly" tabindex="0" role="button">
-              <div class="media-caption">CAD Assembly — click to expand</div>
+              <div class="media-caption">CAD Assembly</div>
             </div>
             <div class="media-slot">
               <img src="Icing_Real.jpg" alt="Cake Icing Robot Physical Build" loading="lazy" decoding="async" style="cursor:zoom-in;" data-lightbox="Physical Build" tabindex="0" role="button">
-              <div class="media-caption">Physical Build — click to expand</div>
+              <div class="media-caption">Physical Build</div>
             </div>
           </div>
 
@@ -460,7 +468,7 @@
           <div>
             <div class="narrative">
               <p>A 5-DoF manipulator (3 rotational, 2 linear joints) nicknamed CHRISTMAS, designed to use inverse and forward kinematics to apply icing to cakes of various sizes, with customizable messages included! Implemented electronics and task programming, driving Dynamixel MX-28AR servos via an ESP32, with custom packet-level functions for real-time trajectory behavior using position and velocity control.</p>
-              <p style="margin-top:14px;">More details on the mechanisms, inverse and forward kinematics, and simulation work are attached in the report link below.</p>
+              <p>More details on the mechanisms, inverse and forward kinematics, and simulation work are attached in the report link below.</p>
             </div>
             <div style="margin-top:14px;">
               <a href="Cake%20Icing%20Robot%20Report.pdf" target="_blank" rel="noopener noreferrer" class="repo-link">Report PDF &rarr;</a>
@@ -470,12 +478,12 @@
           <!-- Task space diagrams, side by side under the blurb -->
           <div class="media-grid">
             <div class="media-slot">
-              <img src="Icing_Diagram_1.jpg" alt="Task space visualization for the gantry" loading="lazy" decoding="async" style="cursor:zoom-in;" data-lightbox="Task space visualization for gantry" tabindex="0" role="button">
-              <div class="media-caption">Gantry task space — click to expand</div>
+              <img src="Icing_Diagram_1.jpg" alt="Task space visualization for the gantry" loading="lazy" decoding="async" style="cursor:zoom-in;" data-lightbox="Gantry task space" tabindex="0" role="button">
+              <div class="media-caption">Gantry task space</div>
             </div>
             <div class="media-slot">
-              <img src="Icing_Diagram_2.jpg" alt="Entire task space visualization" loading="lazy" decoding="async" style="cursor:zoom-in;" data-lightbox="Entire task space visualization" tabindex="0" role="button">
-              <div class="media-caption">Complete task space — click to expand </div>
+              <img src="Icing_Diagram_2.jpg" alt="Entire task space visualization" loading="lazy" decoding="async" style="cursor:zoom-in;" data-lightbox="Complete task space" tabindex="0" role="button">
+              <div class="media-caption">Complete task space</div>
             </div>
           </div>
         </div>
@@ -502,27 +510,27 @@
             </div>
           </div>
           <div class="detail-body">
-            <!-- Left Side: hardware photos -->
+            <!-- Left Side: hardware photo + CAD -->
             <div style="display:flex; flex-direction:column; gap:24px;">
               <div class="media-slot">
                 <img src="Robot_Hand_1.jpg" alt="Mechanical hand, full benchtop assembly" loading="lazy" decoding="async" style="cursor:zoom-in;" data-lightbox="Full hand benchtop assembly" tabindex="0" role="button">
                 <div class="media-caption">Full hand benchtop assembly</div>
               </div>
-                <div class="media-slot">
-                  <img src="Robot_Finger_2.jpg" alt="Finger linkage CAD" loading="lazy" decoding="async" style="cursor:zoom-in;" data-lightbox="Finger linkage CAD" tabindex="0" role="button">
-                  <div class="media-caption">Finger linkage CAD</div>
-                </div>
+              <div class="media-slot">
+                <img src="Robot_Finger_2.jpg" alt="Finger linkage CAD" loading="lazy" decoding="async" style="cursor:zoom-in;" data-lightbox="Finger linkage CAD" tabindex="0" role="button">
+                <div class="media-caption">Finger linkage CAD</div>
+              </div>
             </div>
-            <!-- Right Side: Narrative + Specs + Code Button + CAD image -->
+            <!-- Right Side: Narrative + Code Button + photo -->
             <div>
               <div class="narrative" style="margin-bottom:18px;">
                 <p>Developed a simple fingertip recognition program with Processing, RP2040 PicoW microcontroller, and OpenCV (Java-based). Built and tuned a mechanical hand with 4 servo-driven fingers to mimic detected movements, incorporating digital debouncing to eliminate false detections.</p>
-                <p>Addressing the electrical constraints of running four servos at once, I created a dedicated power supply using a USB-C input paired with a step-down buck converter. This delivered the necessary 2.0 A peak current to ensure synchronized actuation. </p>
+                <p>Addressing the electrical constraints of running four servos at once, I created a dedicated power supply using a USB-C input paired with a step-down buck converter. This delivered the necessary 2.0 A peak current to ensure synchronized actuation.</p>
               </div>
               <div style="margin-top:14px;">
                 <a href="https://github.com/SpencerKelly21/SpencerKellyPortfolio/blob/main/Mimic_Hand_Tracking.pde" target="_blank" rel="noopener noreferrer" class="repo-link">Finger Detection Code &rarr;</a>
               </div>
-              <!-- CAD image, under the link row -->
+              <!-- Finger linkage photo, under the link row -->
               <div style="margin-top:30px;">
                 <div class="media-slot">
                   <img src="Robot_Finger_1.jpg" alt="Finger linkage assembly" loading="lazy" decoding="async" style="cursor:zoom-in;" data-lightbox="Finger linkage assembly" tabindex="0" role="button">
@@ -547,23 +555,24 @@
       <div class="tags"><span class="tag">COMSOL</span><span class="tag">SolidWorks</span><span class="tag">Tissue Engineering</span><span class="tag">Project Management</span></div>
       <div class="detail">
         <div class="detail-inner">
+          <!-- Top row: CAD assembly (left) + circuit diagram (right) -->
           <div class="media-grid">
-              <div class="media-slot">
-                <img src="Capstone_Circuit.jpg" alt="Capstone bioreactor circuit diagram" loading="lazy" decoding="async" style="cursor:zoom-in;" data-lightbox="Capstone circuit diagram" tabindex="0" role="button">
-                <div class="media-caption">Capstone circuit</div>
-              </div>
             <div class="media-slot">
-              <img src="Bioreactor_2.jpg" alt="Small-scale bioreactor, view 2" loading="lazy" decoding="async" style="cursor:zoom-in;" data-lightbox="Bioreactor detail" tabindex="0" role="button">
-              <div class="media-caption">Bioreactor lab prototype</div>
+              <img src="Bioreactor_1.jpg" alt="Small-scale bioreactor CAD assembly" loading="lazy" decoding="async" style="cursor:zoom-in;" data-lightbox="Bioreactor CAD assembly" tabindex="0" role="button">
+              <div class="media-caption">Bioreactor CAD assembly</div>
+            </div>
+            <div class="media-slot">
+              <img src="Capstone_Circuit.jpg" alt="Capstone bioreactor circuit diagram" loading="lazy" decoding="async" style="cursor:zoom-in;" data-lightbox="Capstone circuit" tabindex="0" role="button">
+              <div class="media-caption">Capstone circuit</div>
             </div>
           </div>
           <div class="detail-body">
-            <!-- Left Side: capstone circuit -->
+            <!-- Left Side: lab prototype -->
             <div>
-             <div class="media-slot">
-              <img src="Bioreactor_2.jpg" alt="Small-scale bioreactor, view 2" loading="lazy" decoding="async" style="cursor:zoom-in;" data-lightbox="Bioreactor detail" tabindex="0" role="button">
-              <div class="media-caption">Bioreactor lab prototype</div>
-            </div>
+              <div class="media-slot">
+                <img src="Bioreactor_2.jpg" alt="Small-scale bioreactor lab prototype" loading="lazy" decoding="async" style="cursor:zoom-in;" data-lightbox="Bioreactor lab prototype" tabindex="0" role="button">
+                <div class="media-caption">Bioreactor lab prototype</div>
+              </div>
             </div>
             <!-- Right Side: Narrative + Report Button -->
             <div>
@@ -607,7 +616,7 @@
       </div>
       <div>
         <h4>Software</h4>
-        <ul><li>SolidWorks</li><li>Onshape</li><li>Simulink</li><li>COMSOL</li><li>OpenSim</li><li>OpenCV</li><li>TOPS</li><li>Processing</li><li>MuJoCo</li></ul>
+        <ul><li>SolidWorks</li><li>Fusion 360</li><li>Onshape</li><li>Simulink</li><li>COMSOL</li><li>OpenSim</li><li>OpenCV</li><li>TOPS</li><li>Processing</li><li>MuJoCo</li></ul>
       </div>
       <div>
         <h4>Hardware</h4>
