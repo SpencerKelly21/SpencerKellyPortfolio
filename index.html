@@ -252,7 +252,7 @@
   .skill-cols{display:grid; grid-template-columns:repeat(3,1fr); gap:28px;}
   @media (max-width:640px){.skill-cols{grid-template-columns:1fr;}}
   .skill-cols h4{font-size:1.05rem; color:var(--graphite); font-weight:600; margin-bottom:12px;}
-  .skill-cols ul{list-style:none; margin:0; padding:0; font-family:'IBM Plex Mono', monospace; font-size:1.1rem; display:flex; flex-wrap:wrap; gap:8px;}
+  .skill-cols ul{list-style:none; margin:0; padding:0; font-family:'IBM Plex Mono', monospace; font-size:1.0rem; display:flex; flex-wrap:wrap; gap:8px;}
   .skill-cols li{border:1px solid var(--line); padding:5px 10px; background:var(--card);}
 
   /* Media captions */
@@ -548,15 +548,31 @@
       <div class="detail">
         <div class="detail-inner">
           <div class="media-grid">
-            <div class="media-slot">Add CAD render or COMSOL plot</div>
+            <div class="media-slot">
+              <img src="Bioreactor_1.jpg" alt="Small-scale bioreactor, view 1" loading="lazy" decoding="async" style="cursor:zoom-in;" data-lightbox="Bioreactor overview" tabindex="0" role="button">
+              <div class="media-caption">Bioreactor CAD assembly</div>
+            </div>
+            <div class="media-slot">
+              <img src="Bioreactor_2.jpg" alt="Small-scale bioreactor, view 2" loading="lazy" decoding="async" style="cursor:zoom-in;" data-lightbox="Bioreactor detail" tabindex="0" role="button">
+              <div class="media-caption">Bioreactor lab prototype</div>
+            </div>
           </div>
           <div class="detail-body">
-            <div class="narrative">
-              <p>Led a team building a dual-mechanism bioreactor promoting cell differentiation via stretch and perfusion. Ran COMSOL simulations to evaluate flow rate and shear stress in soft tissue and designed a linear track with self-lubricating bearings.</p>
-            </div>
+            <!-- Left Side: capstone circuit -->
             <div>
+              <div class="media-slot">
+                <img src="Capstone_Circuit.jpg" alt="Capstone bioreactor circuit diagram" loading="lazy" decoding="async" style="cursor:zoom-in;" data-lightbox="Capstone circuit diagram" tabindex="0" role="button">
+                <div class="media-caption">Capstone circuit</div>
+              </div>
+            </div>
+            <!-- Right Side: Narrative + Report Button -->
+            <div>
+              <div class="narrative" style="margin-bottom:18px;">
+                <p>Led a senior capstone design team in building a dual-mechanism bioreactor promoting cell differentiation via stretch and perfusion (mechanical stimuli). Ran COMSOL simulations to evaluate flow rate and shear stress in soft tissue and designed a linear track with self-lubricating bearings.</p>
+                <p>See report for more details on motivation, COMSOL simulations, and design background.</p>
+              </div>
               <div style="margin-top:14px;">
-                <a href="https://github.com/spencerkelly21/SpencerKellyPortfolio" target="_blank" rel="noopener noreferrer" class="repo-link">View CAD / CAD Models &rarr;</a>
+                <a href="Capstone_Paper.pdf" target="_blank" rel="noopener noreferrer" class="repo-link">Final Report &rarr;</a>
               </div>
             </div>
           </div>
@@ -587,7 +603,7 @@
     <div class="skill-cols">
       <div>
         <h4>Coding</h4>
-        <ul><li>MATLAB</li><li>C++</li><li>ACSPL+</li><li>Python</li><li>Java</li></ul>
+        <ul><li>MATLAB</li><li>C++</li><li>ACSPL+</li><li>Python</li><li>Java</li><li>HTML</li></ul>
       </div>
       <div>
         <h4>Software</h4>
