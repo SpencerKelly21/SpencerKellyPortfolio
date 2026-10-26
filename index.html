@@ -397,7 +397,7 @@
       </div>
     </div>
 
-    <!-- Project 3 -->
+   <!-- Project 3 -->
     <div class="proj-row">
       <div class="row-head">
         <div>
@@ -409,11 +409,16 @@
       <div class="tags"><span class="tag">ESP32-S3</span><span class="tag">INA826</span><span class="tag">FFT</span><span class="tag">Processing (Java)</span><span class="tag">Signal Processing</span></div>
       <div class="detail">
         <div class="detail-inner">
-          <!-- ECG Video in main top media slot -->
+          <!-- Top Media Grid: ECG Video + Schematic side-by-side -->
           <div class="media-grid">
             <div class="media-slot">
               <video data-src="ECG_Video.MOV#t=0.1" controls playsinline preload="metadata"></video>
               <div class="media-caption">Electrocardiogram data with visible PQRST complex</div>
+            </div>
+            <div class="media-slot">
+              <!-- Update src filename to .png or .jpg once converted from PDF -->
+              <img src="EKG_Circuit.png" alt="ECG Circuit Design (KiCad)" loading="lazy" decoding="async" style="cursor:zoom-in;" data-lightbox="ECG Circuit Design (KiCad)" tabindex="0" role="button">
+              <div class="media-caption">ECG Circuit Design (KiCad)</div>
             </div>
           </div>
           <div class="detail-body">
@@ -424,7 +429,7 @@
                 <div class="media-caption">Raw EMG data</div>
               </div>
             </div>
-            <!-- Right Side: Narrative + Specs + Code Button -->
+            <!-- Right Side: Narrative + Specs + Links -->
             <div>
               <div class="narrative" style="margin-bottom:18px;">
                 <p>Designed and validated a functional ECG/EMG circuit from first principles using an INA826 instrumentation amp, RC network, and ESP32-S3. Applied FFT and a brick-wall low-pass filter to isolate cardiac signals, visualized in a custom 3-pane Processing interface (raw signal, filtered signal, frequency domain). See video(s) for a live demo of each.</p>
@@ -434,6 +439,7 @@
                 <div><span>Filter Cutoff</span><span>40 Hz Low Pass</span></div>
               </div>
               <div style="margin-top:14px;">
+                <a href="EKG_Circuit.pdf" target="_blank" rel="noopener noreferrer" class="repo-link">Schematic PDF &rarr;</a>
                 <a href="https://github.com/SpencerKelly21/SpencerKellyPortfolio/blob/main/Filter_Data.pde" target="_blank" rel="noopener noreferrer" class="repo-link">Signal Processing Code &rarr;</a>
               </div>
             </div>
@@ -441,7 +447,7 @@
         </div>
       </div>
     </div>
-
+    
     <!-- Project 4 -->
     <div class="proj-row">
       <div class="row-head">
