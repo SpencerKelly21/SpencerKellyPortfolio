@@ -398,56 +398,62 @@
     </div>
 
 <!-- Project 3 -->
-    <div class="proj-row">
-      <div class="row-head">
-        <div>
-          <h3>Signal Processed ECG/EMG Design</h3>
-          <div class="sub">Individual Project // February 2026 – March 2026</div>
+<div class="proj-row">
+  <div class="row-head">
+    <div>
+      <h3>Signal Processed ECG/EMG Design</h3>
+      <div class="sub">Individual Project // February 2026 – March 2026</div>
+    </div>
+    <div class="expand-hint"><span class="hint-expand">tap to expand</span><span class="hint-collapse">tap to collapse</span></div>
+  </div>
+  <div class="tags"><span class="tag">ESP32</span><span class="tag">INA826</span><span class="tag">FFT</span><span class="tag">Processing (Java)</span><span class="tag">PCB Design</span></div>
+  <div class="detail">
+    <div class="detail-inner">
+      <!-- Main Top Media Slot: Full-Width ECG Video -->
+      <div class="media-grid">
+        <div class="media-slot">
+          <video data-src="ECG_Video.MOV#t=0.1" controls playsinline preload="metadata"></video>
+          <div class="media-caption">Electrocardiogram data with visible PQRST complex</div>
         </div>
-        <div class="expand-hint"><span class="hint-expand">tap to expand</span><span class="hint-collapse">tap to collapse</span></div>
       </div>
-      <div class="tags"><span class="tag">ESP32-S3</span><span class="tag">INA826</span><span class="tag">FFT</span><span class="tag">Processing (Java)</span><span class="tag">Signal Processing</span></div>
-      <div class="detail">
-        <div class="detail-inner">
-          <!-- Main Top Media Slot: Full-Width ECG Video -->
-          <div class="media-grid">
-            <div class="media-slot">
-              <video data-src="ECG_Video.MOV#t=0.1" controls playsinline preload="metadata"></video>
-              <div class="media-caption">Electrocardiogram data with visible PQRST complex</div>
-            </div>
-          </div>
 
-          <div class="detail-body">
-            <!-- Left Column: EMG Video -->
-            <div>
-              <div class="media-slot">
-                <video data-src="EMG_Video.mp4#t=0.1" controls playsinline preload="metadata"></video>
-                <div class="media-caption">Raw EMG data</div>
-              </div>
-            </div>
-            <!-- Right Column: Narrative + Specs + Code Button -->
-            <div>
-              <div class="narrative" style="margin-bottom:18px;">
-                <p>Designed and validated a functional ECG/EMG circuit from first principles using an INA826 instrumentation amp, RC network, and ESP32-S3. Applied FFT and a brick-wall low-pass filter to isolate cardiac signals, visualized in a custom 3-pane Processing interface (raw signal, filtered signal, frequency domain). See video(s) for a live demo of each.</p>
-              </div>
-              <div class="spec-list">
-                <div><span>Sampling Rate</span><span>250 Hz (12-bit)</span></div>
-                <div><span>Filter Cutoff</span><span>40 Hz Low Pass</span></div>
-              </div>
-              <div style="margin-top:14px;">
-                <a href="https://github.com/SpencerKelly21/SpencerKellyPortfolio/blob/main/Filter_Data.pde" target="_blank" rel="noopener noreferrer" class="repo-link">Signal Processing Code &rarr;</a>
-              </div>
-            </div>
-          </div>
-
-          <!-- Full-Width Schematic PNG Below Paragraph & EMG Video -->
+      <div class="detail-body">
+        <!-- Left Column: EMG Video -->
+        <div>
           <div class="media-slot">
-            <img src="EKG_Circuit_1.png" alt="ECG Circuit Design (KiCad)" loading="lazy" decoding="async" style="cursor:zoom-in;" data-lightbox="ECG Circuit Design (KiCad)" tabindex="0" role="button">
-            <div class="media-caption">ECG Circuit Design (KiCad)</div>
+            <video data-src="EMG_Video.mp4#t=0.1" controls playsinline preload="metadata"></video>
+            <div class="media-caption">Raw EMG data</div>
           </div>
         </div>
+        <!-- Right Column: Narrative + Specs + Code Button -->
+        <div>
+          <div class="narrative" style="margin-bottom:18px;">
+            <p>Designed and validated a functional ECG/EMG circuit from first principles using an INA826 instrumentation amp, RC network, and ESP32-S3. Applied FFT and a brick-wall low-pass filter to isolate cardiac signals, visualized in a custom 3-pane Processing interface (raw signal, filtered signal, frequency domain). See video(s) for a live demo of each.</p>
+          </div>
+          <div class="spec-list">
+            <div><span>Sampling Rate</span><span>250 Hz (12-bit)</span></div>
+            <div><span>Filter Cutoff</span><span>40 Hz Low Pass</span></div>
+          </div>
+          <div style="margin-top:14px;">
+            <a href="https://github.com/SpencerKelly21/SpencerKellyPortfolio/blob/main/Filter_Data.pde" target="_blank" rel="noopener noreferrer" class="repo-link">Signal Processing Code &rarr;</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Full-Width Schematic PNG -->
+      <div class="media-slot">
+        <img src="EKG_Circuit_1.png" alt="ECG Circuit Design (KiCad)" loading="lazy" decoding="async" style="cursor:zoom-in;" data-lightbox="ECG Circuit Design (KiCad)" tabindex="0" role="button">
+        <div class="media-caption">ECG Circuit Design (KiCad)</div>
+      </div>
+
+      <!-- Full-Width PCB Layout 3D Render -->
+      <div class="media-slot">
+        <img src="EKG_PCB_3D.png" alt="PCB Prototype Design (KiCad)" loading="lazy" decoding="async" style="cursor:zoom-in;" data-lightbox="PCB Prototype Design (KiCad)" tabindex="0" role="button">
+        <div class="media-caption">PCB Prototype Design (KiCad)</div>
       </div>
     </div>
+  </div>
+</div>
     
     <!-- Project 4 -->
     <div class="proj-row">
